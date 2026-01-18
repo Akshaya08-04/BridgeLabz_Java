@@ -1,3 +1,9 @@
+/*
+ This program demonstrates a university management system.
+ It shows how University, Department, and Faculty classes are related.
+ A university can have multiple departments and faculty members,
+ and faculty can exist independently even if the university is deleted.
+*/
 package ClassSequenceDiagram;
 import java.util.ArrayList;
 import java.util.Scanner;
