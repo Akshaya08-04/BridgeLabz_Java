@@ -1,3 +1,9 @@
+/*
+ This program demonstrates a hospital management system using multiple classes.
+ It shows the relationship between Hospital, Doctor, and Patient classes.
+ Doctors can consult patients, patients can have multiple doctors,
+ and the hospital maintains records of all doctors and patients.
+*/
 package ClassSequenceDiagram;
 import java.util.ArrayList;
 import java.util.Scanner;
