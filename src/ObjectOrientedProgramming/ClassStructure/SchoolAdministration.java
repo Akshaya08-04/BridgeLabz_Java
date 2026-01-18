@@ -1,3 +1,9 @@
+/*
+ This program demonstrates a school administration system using Java.
+ It shows the relationship between School, Student, and Course classes.
+ Students can enroll in multiple courses, courses can have multiple students,
+ and the school maintains a list of all students.
+*/
 package ClassSequenceDiagram;
 import java.util.ArrayList;
 import java.util.Scanner;
