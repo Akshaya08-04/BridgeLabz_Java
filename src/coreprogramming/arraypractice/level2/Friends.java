@@ -1,81 +1,86 @@
-/*
- This program stores details of three friends.
- It takes age and height as input, validates the data,
- and then finds and displays the youngest and tallest friend.
-*/
-package coreprogramming.arraypractice.level2; // Defines the package for Level 2 array practice programs
+/**
+ * Program Name: Friends
+ *
+ * Description:
+ * This program stores information (name, age, height) for 3 friends,
+ * takes their details as input, validates the data, and identifies:
+ * 1. The youngest friend
+ * 2. The tallest friend
+ *
+ * Steps:
+ * 1. Initialize names of friends in an array.
+ * 2. Create arrays to store age and height for each friend.
+ * 3. Input age and height for each friend with validation (must be positive).
+ * 4. Identify the youngest and tallest friend using loops.
+ * 5. Display the names and corresponding age/height of the youngest and tallest friends.
+ *
+ * Concepts Used:
+ * - Arrays
+ * - Loops
+ * - Conditional statements
+ * - Input validation
+ */
+package coreprogramming.arraypractice.level2;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
-public class Friends { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+public class Friends {
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read user input
+    public static void main(String[] args) {
 
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
+
+        // Array of friend names
         String[] names = {"Amar", "Akbar", "Anthony"};
-        // Array storing names of the friends
 
+        // Number of friends
         int size = 3;
-        // Stores the number of friends
 
+        // Arrays to store age and height for each friend
         double[] age = new double[size];
-        // Array to store age of each friend
-
         double[] height = new double[size];
-        // Array to store height of each friend
 
-        // Loop to take age and height input for each friend
+        // Loop to input age and height for each friend
         for (int i = 0; i < size; i++) {
-
             System.out.println("\nEnter details for " + names[i]);
-            // Displays which friend's details are being entered
 
+            // Input age
             System.out.print("Enter age: ");
             age[i] = input.nextDouble();
-            // Reads and stores age
 
+            // Input height
             System.out.print("Enter height: ");
             height[i] = input.nextDouble();
-            // Reads and stores height
 
-            // Validation to ensure age and height are positive
+            // Validate that age and height are positive
             if (height[i] <= 0 || age[i] <= 0) {
                 System.out.println("The age and height entered is invalid.");
-                i--;
-                // Decrements index to re-enter details for the same friend
+                i--; // Repeat input for this friend
                 continue;
-                // Skips remaining code in this iteration
             }
         }
 
+        // Variables to track index of youngest and tallest friend
         int youngestIndex = 0;
-        // Stores index of the youngest friend
-
         int tallestIndex = 0;
-        // Stores index of the tallest friend
 
-        // Loop to find the youngest and tallest friend
+        // Loop to find youngest and tallest friend
         for (int i = 0; i < size; i++) {
-
-            // Checking for youngest friend
             if (age[i] < age[youngestIndex]) {
-                youngestIndex = i;
-                // Updates index of youngest friend
+                youngestIndex = i; // Update youngest index
             }
-
-            // Checking for tallest friend
             if (height[i] > height[tallestIndex]) {
-                tallestIndex = i;
-                // Updates index of tallest friend
+                tallestIndex = i; // Update tallest index
             }
         }
 
+        // Display the youngest friend
         System.out.println("\nYoungest friend: " + names[youngestIndex]
                 + " (Age: " + age[youngestIndex] + ")");
-        // Displays youngest friend's name and age
 
+        // Display the tallest friend
         System.out.println("Tallest friend: " + names[tallestIndex]
                 + " (Height: " + height[tallestIndex] + ")");
-        // Displays tallest friend's name and height
     }
 }

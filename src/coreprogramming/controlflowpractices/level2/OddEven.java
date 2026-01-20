@@ -1,63 +1,52 @@
-/*
- This program checks and prints whether numbers from 1 to a given number
- are odd or even.
- It also counts how many even and odd numbers are present.
-*/
 package coreprogramming.controlflowpractices.level2;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class OddEven {
+
+    /*
+     * This program counts and prints all odd and even numbers
+     * from 1 up to a user-provided positive number.
+     * Steps:
+     * 1. Take user input for a positive number.
+     * 2. Validate input to ensure it's positive and non-zero.
+     * 3. Loop from 1 to the entered number:
+     *    - Check if each number is odd or even.
+     *    - Print the number along with "Odd" or "Even".
+     *    - Maintain counters for both odd and even numbers.
+     * 4. Print the counts of odd and even numbers at the end.
+     */
+
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
+        Scanner input = new Scanner(System.in); // Scanner for user input
 
+        // Get user input
         System.out.print("Enter a number: ");
         int number = input.nextInt();
-        // Reading the number from the user
 
-        // Loop to ensure the number entered is positive and non-zero
+        // Validate input to ensure positive non-zero number
         while (number <= 0) {
             System.out.print("Enter a positive non-zero number: ");
             number = input.nextInt();
-            // Asking again until a valid number is entered
         }
 
         int countEven = 0;
-        // Variable to count the number of even values
-
         int countOdd = 0;
-        // Variable to count the number of odd values
 
-        // Loop from 1 to the entered number
+        // Loop from 1 to number to check each number
         for (int i = 1; i <= number; i++) {
-
-            // Checking if the current number is even
             if (i % 2 == 0) {
                 System.out.println(i + " Even");
-                // Printing even number
-
                 countEven++;
-                // Incrementing even counter
-            }
-            // If not even, then the number is odd
-            else {
+            } else {
                 System.out.println(i + " Odd");
-                // Printing odd number
-
                 countOdd++;
-                // Incrementing odd counter
             }
         }
 
-        System.out.println("The count of even numbers found in number from 1 to "
-                + number + " are: " + countEven);
-        // Displaying total count of even numbers
-
-        System.out.println("The count of odd numbers found in number from 1 to "
-                + number + " are: " + countOdd);
-        // Displaying total count of odd numbers
+        // Display total counts
+        System.out.println("The count of even numbers from 1 to " + number + " is: " + countEven);
+        System.out.println("The count of odd numbers from 1 to " + number + " is: " + countOdd);
     }
 }

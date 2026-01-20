@@ -1,123 +1,98 @@
-/*
- This program calculates the current date using system time (milliseconds since 1 Jan 1970).
- It manually converts milliseconds into days, then computes the current year, month, and day.
- Finally, it formats the date into multiple standard formats without using built-in Date APIs.
-*/
-package coreprogramming.extrasbuiltin;
-// Defines the package for extra built-in utility programs
+package coreprogramming.extrasbuiltIn;
 
 public class DateFormatting {
-    // Main class for formatting the current date manually
+
+    /*
+     * This program formats the current system date in multiple ways without using built-in date libraries.
+     * It calculates the current date by converting milliseconds since Jan 1, 1970 (epoch) into days, months, and years.
+     * The program displays the date in three formats:
+     *  1. dd/MM/yyyy
+     *  2. yyyy-MM-dd
+     *  3. EEE, MMM dd, yyyy (weekday, abbreviated month)
+     * It demonstrates arithmetic operations, loops, arrays, methods, and string formatting in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where execution starts
 
+        // Get current time in milliseconds since Jan 1, 1970
         long currentMillis = System.currentTimeMillis();
-        // Getting current time in milliseconds since 1 Jan 1970 (Unix Epoch)
 
+        // Convert milliseconds to total seconds and total days
         long totalSeconds = currentMillis / 1000;
-        // Converting milliseconds into seconds
-
         long totalDays = totalSeconds / (24 * 60 * 60);
-        // Converting total seconds into total days
 
+        // Initialize starting date: Jan 1, 1970
         int year = 1970;
         int month = 1;
         int day = 1;
-        // Initializing date to the Unix epoch start date (01/01/1970)
 
+        // Store remaining days after accounting for years
         long daysLeft = totalDays;
-        // Variable to track remaining days to compute date
 
-        // Loop to calculate current year by subtracting days year by year
+        // Calculate current year by subtracting days of each year
         while (daysLeft >= (isLeapYear(year) ? 366 : 365)) {
             daysLeft -= (isLeapYear(year) ? 366 : 365);
-            // Subtracting days of the current year
             year++;
-            // Moving to the next year
         }
 
+        // Get the number of days in each month for the current year
         int[] daysInMonth = getDaysInMonth(year);
-        // Getting number of days in each month for the calculated year
 
-        // Loop to calculate the current month and day
+        // Calculate current month and day
         for (int i = 0; i < 12; i++) {
-
             if (daysLeft < daysInMonth[i]) {
-                // Checking if remaining days fit within the current month
-                month = i + 1;
-                // Assigning month number (1-based)
-                day = (int) daysLeft + 1;
-                // Assigning day value
+                month = i + 1;       // Months are 1-indexed
+                day = (int) daysLeft + 1; // Days are 1-indexed
                 break;
-                // Exit loop once month and day are found
             } else {
                 daysLeft -= daysInMonth[i];
-                // Subtracting days of the current month
             }
         }
 
+        // Format 1: dd/MM/yyyy
         String format1 = String.format("%02d/%02d/%04d", day, month, year);
-        // Formatting date as dd/MM/yyyy
 
+        // Format 2: yyyy-MM-dd
         String format2 = String.format("%04d-%02d-%02d", year, month, day);
-        // Formatting date as yyyy-MM-dd
 
-        String[] weekdays = {"Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"};
-        // Array storing weekday names (1 Jan 1970 was Thursday)
+        // Arrays for weekday names and month abbreviations
+        String[] weekdays = {"Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"}; // Jan 1, 1970 was Thursday
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
-        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        // Array storing short month names
+        // Calculate current weekday index
+        int weekdayIndex = (int)((totalDays + 4) % 7); // Offset 4 because Jan 1, 1970 was Thursday
 
-        int weekdayIndex = (int) ((totalDays + 4) % 7);
-        // Calculating weekday index (+4 because 1 Jan 1970 was Thursday)
+        // Format 3: EEE, MMM dd, yyyy
+        String format3 = weekdays[weekdayIndex] + ", " + months[month - 1] + " " + day + ", " + year;
 
-        String format3 = weekdays[weekdayIndex] + ", "
-                + months[month - 1] + " " + day + ", " + year;
-        // Formatting date as EEE, MMM dd, yyyy
-
+        // Print all three formatted dates
         System.out.println("dd/MM/yyyy : " + format1);
-        // Printing first date format
-
         System.out.println("yyyy-MM-dd : " + format2);
-        // Printing second date format
-
         System.out.println("EEE, MMM dd, yyyy : " + format3);
-        // Printing third date format
     }
 
-    // Method to check whether a year is a leap year
+    /**
+     * Checks if a year is a leap year.
+     *
+     *  year The year to check
+     * true if leap year, false otherwise
+     */
     public static boolean isLeapYear(int year) {
-        // Leap year condition based on Gregorian calendar
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }
 
-    // Method to return number of days in each month for a given year
+    /**
+     * Returns the number of days in each month for a given year.
+     * February has 29 days if the year is a leap year.
+     *
+     * year The year to check
+     *  Array of days in each month (index 0 = January)
+     */
     public static int[] getDaysInMonth(int year) {
-
-        int[] daysInMonth = {
-                31, // January
-                28, // February
-                31, // March
-                30, // April
-                31, // May
-                30, // June
-                31, // July
-                31, // August
-                30, // September
-                31, // October
-                30, // November
-                31  // December
-        };
-        // Initializing days in each month
-
+        int[] daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         if (isLeapYear(year)) {
             daysInMonth[1] = 29;
-            // Updating February days for leap year
         }
-
         return daysInMonth;
-        // Returning the updated days-in-month array
     }
 }

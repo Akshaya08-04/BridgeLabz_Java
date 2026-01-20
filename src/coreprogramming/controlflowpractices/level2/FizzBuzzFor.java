@@ -1,60 +1,42 @@
-/*
- This program prints the FizzBuzz sequence from 1 up to a given number.
- It uses a while loop to iterate through numbers.
- For each number:
- - Prints "FizzBuzz" if divisible by both 3 and 5
- - Prints "Fizz" if divisible only by 3
- - Prints "Buzz" if divisible only by 5
- - Prints the number itself otherwise
-*/
 package coreprogramming.controlflowpractices.level2;
-// Package declaration for Level 2 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class FizzBuzzFor {
-    // Main class definition
+
+    /*
+     * This program prints FizzBuzz for numbers from 1 to the number entered by the user.
+     * Rules:
+     * - If a number is divisible by 3 and 5, print "FizzBuzz".
+     * - If divisible only by 3, print "Fizz".
+     * - If divisible only by 5, print "Buzz".
+     * - Otherwise, print the number itself.
+     */
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
+        Scanner input = new Scanner(System.in); // Scanner object to get user input
 
+        // Prompt the user to enter a number
         System.out.print("Enter a number: ");
-        // Prompting user to enter a number
         int number = input.nextInt();
-        // Reading the number up to which FizzBuzz should be printed
 
+        // Loop through numbers from 1 to 'number'
         int i = 1;
-        // Initializing counter variable starting from 1
-
-        // Loop runs from 1 to the entered number
         while (i <= number) {
 
-            // Checking if the current number is divisible by both 3 and 5
+            // Check divisibility by 3 and 5
             if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
-                // Printed when number is divisible by both 3 and 5
-            }
-            // Checking if the current number is divisible only by 3
-            else if (i % 3 == 0) {
-                System.out.println("Fizz");
-                // Printed when number is divisible by 3
-            }
-            // Checking if the current number is divisible only by 5
-            else if (i % 5 == 0) {
-                System.out.println("Buzz");
-                // Printed when number is divisible by 5
-            }
-            // If the number is not divisible by 3 or 5
-            else {
-                System.out.println(i);
-                // Printing the number itself
+                System.out.println("FizzBuzz"); // Divisible by both 3 and 5
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz"); // Divisible only by 3
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz"); // Divisible only by 5
+            } else {
+                System.out.println(i); // Not divisible by 3 or 5
             }
 
-            i++;
-            // Incrementing counter to move to the next number
+            i++; // Increment counter
         }
     }
 }

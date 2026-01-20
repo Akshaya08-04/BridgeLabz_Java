@@ -1,46 +1,41 @@
-/*
- This program calculates the sum of the first n natural numbers.
- It validates whether the input is a natural number.
- If valid, it uses the formula n*(n+1)/2 to compute the sum
- and displays the result.
-*/
 package coreprogramming.controlflowpractices.level1;
-// Package declaration for control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class SumOfNumbers {
-    // Main class definition
 
     public static void main(String[] args) {
 
+        /*
+         * This program calculates the sum of the first N natural numbers.
+         * The user is prompted to enter a number.
+         * If the entered number is not a natural number (less than or equal to 0),
+         * the program will display an error message and exit.
+         * Otherwise, it calculates the sum using the formula sum = n * (n + 1) / 2.
+         * Finally, it prints the sum of the numbers.
+         */
+
+        // Creating Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Getting user input
         System.out.print("Enter number: ");
-        // Prompting user to enter a number
         int number = input.nextInt();
-        // Reading the number from the user
 
-        // Checking whether the entered number is a natural number
+        // Condition to check if the number is a natural number
         if (number <= 0) {
             System.out.println("The number " + number + " is not a natural number.");
-            // Printing error message for invalid natural number
-            return;
-            // Exits the program if the number is not natural
+            return; // Exit the program if input is invalid
         }
 
         int sum = 0;
-        // Variable to store the sum of natural numbers
 
-        // Loop to calculate the sum of first 'number' natural numbers
+        // Calculating the sum of the first N natural numbers using the formula
         for (int i = 1; i <= number; i++) {
             sum = number * (number + 1) / 2;
-            // Formula to calculate sum of first n natural numbers
         }
 
+        // Printing the result
         System.out.println("The sum of " + number + " natural numbers is " + sum + ".");
-        // Displaying the calculated sum
     }
 }

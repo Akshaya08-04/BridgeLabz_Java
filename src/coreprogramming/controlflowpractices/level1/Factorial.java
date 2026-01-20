@@ -1,36 +1,55 @@
-/*
- This program calculates the factorial of a given number.
- It validates user input to ensure the number is positive and non-zero,
- then uses a while loop to compute the factorial value.
-*/
-package coreprogramming.controlflowpractices.level1; // Package for Level 1 control flow practice programs
+/**
+ * Program Name: Factorial
+ *
+ * Description:
+ * This program calculates the factorial of a positive non-zero number entered by the user.
+ * The program uses a while loop to ensure the input number is valid and another while loop to calculate the factorial.
+ *
+ * Steps:
+ * 1. Input a number from the user.
+ * 2. Validate that the number is positive and non-zero.
+ * 3. Use a while loop to calculate the factorial of the number.
+ * 4. Display the factorial.
+ *
+ * Concepts Used:
+ * - Loops (while loop)
+ * - Input validation
+ * - Arithmetic operations
+ * - Scanner for user input
+ */
 
-import java.util.Scanner; // Imports Scanner class to take input from the user
+package coreprogramming.controlflowpractices.level1;
 
-public class Factorial { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creates Scanner object for user input
+public class Factorial {
 
-        System.out.print("Enter a number: "); // Prompts the user to enter a number
-        int number = input.nextInt(); // Reads the number entered by the user
+    public static void main(String[] args) {
 
-        // Loop to ensure the number is positive and non-zero
-        while (number <= 0) { // Checks if the number is invalid
-            System.out.print("Enter a positive non-zero number: "); // Asks again for valid input
-            number = input.nextInt(); // Reads the new number
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
+
+        // Getting number input from user
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
+
+        // Validate that number is positive and non-zero
+        while (number <= 0) {
+            System.out.print("Enter a positive non-zero number: ");
+            number = input.nextInt();
         }
 
-        int factorial = 1; // Initializes factorial result to 1
+        // Initialize factorial variable
+        int factorial = 1;
+        int i = 1;
 
-        int i = 1; // Initializes loop counter starting from 1
-
-        // Loop to calculate factorial using multiplication
-        while (i <= number) { // Runs loop until i reaches the given number
-            factorial = factorial * i; // Multiplies factorial with current value of i
-            i++; // Increments i by 1
+        // Calculate factorial using while loop
+        while (i <= number) {
+            factorial = factorial * i;
+            i++;
         }
 
-        System.out.println(factorial); // Prints the final factorial result
+        // Display factorial
+        System.out.println(factorial);
     }
 }

@@ -1,23 +1,27 @@
-/*
- This program converts a fixed distance from kilometers
- to miles using a constant multiplier.
- It demonstrates the use of constants (final keyword),
- arithmetic calculation, and output statements in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
+/*
+ * This program converts a fixed distance in kilometers
+ * into miles using a constant multiplier.
+ */
 public class MilesConversion {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        double Km = 10.8; // stores the distance in kilometers
-        final double multiplier = 1.6; // constant value used for conversion
+        // Distance in kilometers
+        double Km = 10.8;
 
-        double miles = Km * multiplier; // converts kilometers to miles
+        // Conversion factor from kilometers to miles
+        final double multiplier = 1.6;
 
-        System.out.println(
-                "The distance of " + Km + " km in miles is: " + miles + " mi."
-        ); // displays the converted distance
+        /*
+         * Calculating the distance in miles
+         * by multiplying kilometers with the multiplier
+         */
+        double miles = Km * multiplier;
+
+        // Displaying the converted distance
+        System.out.println("The distance of " + Km +
+                " km in miles is: " + miles + " mi.");
     }
 }

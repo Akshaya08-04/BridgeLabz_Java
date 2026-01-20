@@ -1,33 +1,49 @@
-/*
- This program calculates bonus eligibility for an employee.
- If the employee has worked for more than 5 years,
- a 5% bonus on salary is calculated and displayed.
- Otherwise, it displays that no bonus is applicable.
-*/
-package coreprogramming.controlflowpractices.level1; // Defines the package for control flow practice programs (Level 1)
+/**
+ * Program Name: Bonus
+ *
+ * Description:
+ * This program calculates a bonus for an employee based on years of service.
+ * If the employee has more than 5 years of service, they receive a 5% bonus on their salary.
+ * Otherwise, no bonus is given.
+ *
+ * Steps:
+ * 1. Input salary and years of service from the user.
+ * 2. Check if years of service > 5.
+ *    - If yes, calculate bonus = 5% of salary.
+ *    - Else, no bonus is given.
+ * 3. Display the bonus amount or "No bonus".
+ *
+ * Concepts Used:
+ * - Conditional statements (if-else)
+ * - Input using Scanner
+ * - Basic arithmetic operations
+ */
+package coreprogramming.controlflowpractices.level1;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
-public class Bonus { // Main class definition
-    public static void main(String[] args) { // Main method where program execution starts
+public class Bonus {
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read user input
+    public static void main(String[] args) {
 
-        System.out.print("Enter salary: "); // Prompting user to enter salary
-        double salary = input.nextDouble(); // Reading the employee's salary
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter years of service: "); // Prompting user to enter years of service
-        double years = input.nextDouble(); // Reading the number of years worked
+        // Getting salary input from user
+        System.out.print("Enter salary: ");
+        double salary = input.nextDouble();
 
-        // Checking if the employee is eligible for bonus
-        if (years > 5) { // Condition to check service greater than 5 years
+        // Getting years of service input from user
+        System.out.print("Enter years of service: ");
+        double years = input.nextDouble();
 
-            double bonus = (salary * 5) / 100; // Calculating 5% bonus on salary
-
-            System.out.println("The bonus received is: " + bonus); // Displaying bonus amount
-        }
-        else { // Executes if service is 5 years or less
-            System.out.println("No bonus."); // Displaying no bonus message
+        // Calculate bonus based on years of service
+        if (years > 5) {
+            double bonus = (salary * 5) / 100; // 5% of salary
+            System.out.println("The bonus received is: " + bonus);
+        } else {
+            System.out.println("No bonus.");
         }
     }
 }
+

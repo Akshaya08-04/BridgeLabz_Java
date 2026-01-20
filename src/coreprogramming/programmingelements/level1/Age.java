@@ -1,21 +1,17 @@
-/*
- This program calculates the age of a person based on
- the given year of birth and the current year.
- It demonstrates basic variable declaration,
- arithmetic operation, and output in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
+/**
+ * This program calculates a person's age based on their year of birth (DOB) and the current year.
+ * It computes age as currentYear - yearOfBirth and displays the result.
+ */
 public class Age {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
+        final int YEAR_OF_BIRTH = 2000; // Year of birth
+        final int CURRENT_YEAR = 2024;  // Current year
 
-        int DOB = 2000; // stores the year of birth
-        int currentYr = 2024; // stores the current year
+        int age = CURRENT_YEAR - YEAR_OF_BIRTH; // Calculate age
 
-        int age = currentYr - DOB; // calculates age by subtracting DOB from current year
-
-        System.out.println("Harry's age in 2024 is: " + age); // prints the calculated age
+        System.out.printf("Harry's age in %d is: %d%n", CURRENT_YEAR, age); // Display age
     }
 }

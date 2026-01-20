@@ -1,33 +1,26 @@
-/*
- This program converts a person's height from centimeters
- to inches and feet.
- It takes height in centimeters as input from the user,
- performs the required unit conversions,
- and displays the results.
- The program demonstrates user input, arithmetic
- operations, and output in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
-import java.util.Scanner; // imports Scanner class to take input from the user
+import java.util.Scanner;
 
+/*
+ * This program converts height from centimeters to feet and inches.
+ */
 public class HeightConversion {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in); // creates Scanner object for reading user input
+        // Taking height input in centimeters
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter height in cm: ");
+        double height = input.nextDouble();
 
-        System.out.print("Enter height in cm: "); // prompts user to enter height in centimeters
-        double height = input.nextDouble(); // reads height value
+        // Converting cm to inches and feet
+        double inch = height / 2.54;
+        double feet = inch / 12;
 
-        double inch = height / 2.54; // converts height from cm to inches
-        double feet = inch / 12; // converts inches to feet
-
-        System.out.print(
-                "Your height in cm is " + height + " cm "
-                        + "while in feet is " + feet + " ft "
-                        + "and inches is " + inch + "″"
-        ); // displays height in different units
+        // Displaying the converted values
+        System.out.print("Your height in cm is " + height +
+                " cm while in feet is " + feet +
+                " ft and inches is " + inch + "″");
     }
 }

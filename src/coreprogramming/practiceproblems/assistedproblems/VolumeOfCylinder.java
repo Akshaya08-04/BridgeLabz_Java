@@ -1,33 +1,32 @@
-/*
- This program calculates the volume of a cylinder.
- It takes radius and height as input from the user
- and applies the volume formula of a cylinder.
-*/
 package coreprogramming.practiceproblems.assistedproblems;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
+/**
+ * VolumeOfCylinder class
+ * ----------------------
+ * This program calculates the volume of a cylinder based on user-provided
+ * radius and height.
+ */
 public class VolumeOfCylinder {
-    public static void main(String[] args) {
 
-        final double PI = 3.14;
-        // Constant value of PI
+    public static void main(String[] args) {
+        final double PI = 3.14; // Approximation of π
 
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object for user input
 
+        // Prompt user for radius
         System.out.print("Enter the radius of the cylinder: ");
         double radius = input.nextDouble();
-        // Reading radius value
 
+        // Prompt user for height
         System.out.print("Enter the height of the cylinder: ");
         double height = input.nextDouble();
-        // Reading height value
 
+        // Calculate volume: V = π * r^2 * h
         double volume = PI * Math.pow(radius, 2) * height;
-        // Formula to calculate volume of cylinder: πr²h
 
+        // Display the result
         System.out.println("The volume of the cylinder is: " + volume + " cm^3.");
-        // Displaying the calculated volume
     }
 }

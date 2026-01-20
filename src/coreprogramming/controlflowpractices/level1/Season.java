@@ -1,78 +1,66 @@
-/*
- This program checks whether a given date falls in the Spring season.
- Spring is considered from March 20 to June 20.
- The program takes month and day as input, uses a method to validate
- the season, and prints the result.
-*/
+/**
+ * Program Name: Season
+ *
+ * Description:
+ * This program checks if a given date (month and day) falls within the
+ * Spring season. Spring is defined as March 20 to June 20.
+ *
+ * Steps:
+ * 1. Define a method isSpring() to determine if the date is in Spring.
+ * 2. Input month and day from the user.
+ * 3. Use the isSpring() method to check if the entered date is in Spring.
+ * 4. Display appropriate message.
+ *
+ * Concepts Used:
+ * - Methods
+ * - Conditional statements (if-else)
+ * - Scanner for user input
+ */
+
 package coreprogramming.controlflowpractices.level1;
-// Package declaration for control flow practice programs
 
 import java.util.Scanner;
-// Imports Scanner class to take input from the user
 
 public class Season {
-    // Main class named Season
 
-    // Method to check whether the given date falls in Spring season
+    // Method to check if the date is in Spring season
     public static boolean isSpring(int month, int day) {
-
-        // If month is before March or after June, it cannot be Spring
-        if (month < 3 || month > 6) {
+        if (month < 3 || month > 6) { // Months outside March-June
             return false;
-            // Returns false if month is outside Spring range
         }
-
-        // Checking Spring dates in March
-        if (month == 3 && day >= 20 && day <= 31) {
+        if (month == 3 && day >= 20 && day <= 31) { // March 20-31
             return true;
-            // Returns true if date is between March 20 and March 31
         }
-
-        // Checking Spring dates in April
-        if (month == 4 && day >= 1 && day <= 30) {
+        if (month == 4 && day >= 1 && day <= 30) { // April 1-30
             return true;
-            // Returns true for any valid day in April
         }
-
-        // Checking Spring dates in May
-        if (month == 5 && day >= 1 && day <= 31) {
+        if (month == 5 && day >= 1 && day <= 31) { // May 1-31
             return true;
-            // Returns true for any valid day in May
         }
-
-        // Checking Spring dates in June
-        if (month == 6 && day >= 1 && day <= 20) {
+        if (month == 6 && day >= 1 && day <= 20) { // June 1-20
             return true;
-            // Returns true if date is between June 1 and June 20
         }
-
-        // If none of the Spring conditions match
-        return false;
-        // Returns false indicating not a Spring date
+        return false; // Any other date
     }
 
     public static void main(String[] args) {
 
+        // Creating Scanner object to read input from the user
         Scanner sc = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Getting month input
         System.out.print("Enter month (1-12): ");
-        // Prompting user to enter the month
         int month = sc.nextInt();
-        // Reading month value
 
+        // Getting day input
         System.out.print("Enter day: ");
-        // Prompting user to enter the day
         int day = sc.nextInt();
-        // Reading day value
 
-        // Checking if the entered date falls in Spring season
+        // Checking if the entered date is in Spring
         if (isSpring(month, day)) {
             System.out.println("It's a Spring Season");
-            // Printed if the date is in Spring
         } else {
             System.out.println("Not a Spring Season");
-            // Printed if the date is not in Spring
         }
     }
 }

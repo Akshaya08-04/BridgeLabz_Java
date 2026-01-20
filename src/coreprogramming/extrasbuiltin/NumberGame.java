@@ -1,73 +1,63 @@
-/*
- This program is a simple Number Guessing Game.
- The computer guesses a number using binary search logic,
- and the user guides it by giving feedback.
-*/
-package coreprogramming.extrasbuiltin;
+package coreprogramming.extrasbuiltIn;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class NumberGame {
+
+    /*
+     * This program plays a number guessing game using a binary search strategy.
+     * The user thinks of a number between 1 and 100, and the program attempts to guess it.
+     * After each guess, the user provides feedback:
+     *  - "high" if the guess is too high
+     *  - "low" if the guess is too low
+     *  - "correct" if the guess is correct
+     * 
+     * The program demonstrates user input, loops, conditionals, switch-case, and basic algorithmic logic in Java.
+     */
+
     public static void main(String[] args) {
-
+        // Create Scanner object to read user input
         Scanner scanner = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt user to think of a number
         System.out.println("Think of a number between 1 and 100.");
-        System.out.println("Press Enter when you're ready:");
-        scanner.nextLine();
-        // Waiting for user to start the game
+        System.out.println("Press Enter when you're ready: ");
+        scanner.nextLine(); // Wait for user to press Enter
 
+        // Initialize binary search boundaries
         int low = 1;
-        // Lower bound of guessing range
-
         int high = 100;
-        // Upper bound of guessing range
-
         boolean correct = false;
-        // Flag to track if the correct number is guessed
 
-        // Loop continues until the correct number is found
+        // Continue guessing until correct or boundaries are invalid
         while (!correct && low <= high) {
-
+            // Calculate the midpoint as the guess
             int guess = (low + high) / 2;
-            // Computer guesses the middle number (binary search)
-
-            System.out.print("Is your number " + guess + "? (high / low / correct): ");
+            System.out.println("Is your number " + guess + "? (high/low/correct): ");
+            
+            // Read and normalize user feedback
             String feedback = scanner.nextLine().toLowerCase();
-            // Reading user feedback
 
+            // Update boundaries based on feedback
             switch (feedback) {
-
                 case "high":
-                    high = guess - 1;
-                    // Guess is too high
+                    high = guess - 1; // Adjust upper boundary
                     break;
-
                 case "low":
-                    low = guess + 1;
-                    // Guess is too low
+                    low = guess + 1;  // Adjust lower boundary
                     break;
-
                 case "correct":
                     System.out.println("Yay! I guessed your number " + guess + "!");
-                    correct = true;
-                    // Correct guess found
+                    correct = true;   // Stop the loop
                     break;
-
                 default:
-                    System.out.println("Invalid input. Please type high, low, or correct.");
-                    // Handling invalid input
+                    System.out.println("Invalid input. Please type 'high', 'low', or 'correct'.");
             }
         }
 
-        // If loop ends without a correct answer
+        // If the loop ends without a correct guess
         if (!correct) {
             System.out.println("Please provide proper feedback.");
         }
-
-        scanner.close();
-        // Closing scanner
     }
 }

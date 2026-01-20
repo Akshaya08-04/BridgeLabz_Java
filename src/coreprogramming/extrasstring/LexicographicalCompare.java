@@ -1,83 +1,57 @@
-/*
- This program compares two strings lexicographically (dictionary order).
- It compares characters one by one using their ASCII values.
- If all compared characters are equal, the comparison is based on string length.
-*/
-package coreprogramming.Extras;
+package coreprogramming.extrasstring;
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
 public class LexicographicalCompare {
-    // Class to perform lexicographical comparison of two strings
+
+    /*
+     * This program compares two strings lexicographically (dictionary order) without using built-in methods.
+     * Lexicographical comparison checks character by character from left to right.
+     * Example:
+     *   "apple" comes before "banana"
+     *   "cat" comes after "car"
+     * The program demonstrates string manipulation, loops, and conditional statements in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where program execution begins
-
+        // Create Scanner object to read user input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object for reading user input
 
+        // Prompt user to enter the first string
         System.out.print("Enter first string: ");
-        // Prompting user to enter the first string
         String s1 = input.nextLine();
-        // Reading the first string
 
+        // Prompt user to enter the second string
         System.out.print("Enter second string: ");
-        // Prompting user to enter the second string
         String s2 = input.nextLine();
-        // Reading the second string
 
-        int i = 0;
-        // Index variable used to traverse both strings
+        int i = 0; // Index to iterate through characters
+        int minLength = Math.min(s1.length(), s2.length()); // Compare up to the length of shorter string
 
-        int minLength = Math.min(s1.length(), s2.length());
-        // Finding the minimum length of the two strings
-
-        // Loop to compare characters at each position
+        // Compare characters one by one
         while (i < minLength) {
-
             char c1 = s1.charAt(i);
-            // Extracting character from first string at index i
-
             char c2 = s2.charAt(i);
-            // Extracting character from second string at index i
 
             if (c1 < c2) {
-                // If first string character comes before second
-                System.out.println("First string " + s1 + " comes before second string " + s2 + ".");
-                input.close();
-                // Closing Scanner object
+                System.out.println("First string \"" + s1 + "\" comes before second string \"" + s2 + "\".");
+                input.close(); // Close Scanner
                 return;
-                // Exiting the program
-            }
-            else if (c1 > c2) {
-                // If first string character comes after second
-                System.out.println("First string " + s1 + " comes after second string " + s2 + ".");
-                input.close();
-                // Closing Scanner object
+            } else if (c1 > c2) {
+                System.out.println("First string \"" + s1 + "\" comes after second string \"" + s2 + "\".");
+                input.close(); // Close Scanner
                 return;
-                // Exiting the program
             }
-
-            i++;
-            // Moving to the next character index
+            i++; // Move to next character
         }
 
-        // If all compared characters are equal, compare string lengths
+        // If all compared characters are equal, compare lengths
         if (s1.length() < s2.length()) {
-            // First string is shorter
-            System.out.println("First string comes before second string");
+            System.out.println("First string \"" + s1 + "\" comes before second string \"" + s2 + "\".");
+        } else if (s1.length() > s2.length()) {
+            System.out.println("First string \"" + s1 + "\" comes after second string \"" + s2 + "\".");
+        } else {
+            System.out.println("Both strings are equal.");
         }
-        else if (s1.length() > s2.length()) {
-            // First string is longer
-            System.out.println("First string comes after second string");
-        }
-        else {
-            // Both strings have same length and characters
-            System.out.println("Both strings are equal");
-        }
-
-        input.close();
-        // Closing Scanner object
     }
 }

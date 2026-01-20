@@ -1,29 +1,27 @@
-/*
- This program converts a distance from kilometers to miles.
- It takes the distance in kilometers as input from the user,
- performs the conversion using a standard formula,
- and displays the result.
- The program demonstrates user input, arithmetic
- calculation, and output in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
-import java.util.Scanner; // imports Scanner class to read user input
+import java.util.Scanner;
 
+/**
+ * This program converts a distance from kilometers to miles.
+ * It prompts the user to enter the distance in km,
+ * converts it to miles, and displays the result.
+ */
 public class ConvertToMiles {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Scanner for user input
 
-        Scanner input = new Scanner(System.in); // creates Scanner object for input
+        // Prompt user to enter distance in kilometers
+        System.out.print("Enter the distance in kilometers: ");
+        double kilometers = scanner.nextDouble();
 
-        System.out.print("Enter the distance in km: "); // prompts user to enter distance
-        double km = input.nextDouble(); // reads distance in kilometers
+        // Convert kilometers to miles
+        final double KM_TO_MILES_CONVERSION = 0.621371;
+        double miles = kilometers * KM_TO_MILES_CONVERSION;
 
-        double miles = km / 1.6; // converts kilometers to miles
-
-        System.out.println(
-                "The total miles is " + miles + " mi for the given km " + km + " km."
-        ); // displays the converted distance
+        // Display result
+        System.out.printf("%.2f km is equal to %.2f miles.%n", kilometers, miles);
     }
 }
+

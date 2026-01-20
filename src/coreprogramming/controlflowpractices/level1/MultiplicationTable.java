@@ -1,38 +1,43 @@
-/*
- This program prints the multiplication table of a given number
- from 6 to 9 using a for loop.
- It demonstrates basic input handling and loop-based calculation.
-*/
-package coreprogramming.controlflowpractices.level1; // Package declaration
+/**
+ * Program Name: MultiplicationTable
+ *
+ * Description:
+ * This program reads an integer number from the user and prints its
+ * multiplication table for the multiples 6, 7, 8, and 9.
+ *
+ * Steps:
+ * 1. Input a number from the user.
+ * 2. Use a for loop to calculate multiples from 6 to 9.
+ * 3. Display each result with a descriptive message.
+ *
+ * Concepts Used:
+ * - Loops (for loop)
+ * - Arithmetic operations
+ * - Scanner for user input
+ */
+package coreprogramming.controlflowpractices.level1;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
-public class MultiplicationTable { // Main class
-    public static void main(String[] args) { // Main method starts execution
+public class MultiplicationTable {
 
+    public static void main(String[] args) {
+
+        // Creating Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Getting user input
         System.out.print("Enter a number: ");
-        // Asking user to enter a number
-
         int number = input.nextInt();
-        // Reading the number for which multiplication table is required
 
-        int table = 0;
         // Variable to store multiplication result
+        int table = 0;
 
-        // Loop to generate multiplication table from 6 to 9
+        // Loop through 6 to 9 to calculate multiples
         for (int i = 6; i <= 9; i++) {
-
             table = number * i;
-            // Calculating multiplication value
-
-            System.out.println(
-                    "The multiplication table for the number " + number +
-                            " from 6 to 9 is: " + table
-            );
-            // Displaying the result for each multiplication
+            System.out.println("The multiplication table for the number " + number 
+                    + " from 6 to 9 is: " + table);
         }
     }
 }

@@ -1,78 +1,90 @@
-/*
- This program generates salary and years-of-service data for employees,
- calculates bonus based on years of service, and displays old salary,
- bonus amount, new salary, and total summaries.
-*/
 package coreprogramming.javamethods.level3;
 
 import java.util.Random;
 
+/*
+ * SalaryAndBonus class
+ * -------------------
+ * This class simulates salary and bonus calculation for employees.
+ * Features:
+ * 1. Generate random employee data: salary and years of service.
+ * 2. Calculate bonus based on years of service:
+ *    - >5 years: 5% of salary
+ *    - ≤5 years: 2% of salary
+ * 3. Compute new salary (salary + bonus) and display results.
+ * 4. Display total old salary, total bonus, and total new salary.
+ */
 public class SalaryAndBonus {
 
-    // Method to generate employee salary and years of service
-    public static int[][] generateEmployeeData(int n) {
+    // Generate random salary and years of service for given number of employees
+    public static int[][] generateEmployeeData(int numEmployees) {
         Random rand = new Random();
-        int[][] data = new int[n][2];
-        // data[i][0] -> salary, data[i][1] -> years of service
+        int[][] data = new int[numEmployees][2]; // [salary, years]
 
-        for (int i = 0; i < n; i++) {
-            data[i][0] = rand.nextInt(90000) + 10000; // Generates salary between 10000 and 99999
-            data[i][1] = rand.nextInt(10) + 1;       // Generates years between 1 and 10
+        for (int i = 0; i < numEmployees; i++) {
+            data[i][0] = rand.nextInt(90000) + 10000; // Salary: 10,000 – 99,999
+            data[i][1] = rand.nextInt(10) + 1;        // Years of service: 1 – 10
         }
+
         return data;
     }
 
-    // Method to calculate bonus and updated salary
-    public static double[][] calculateBonus(int[][] data) {
-        double[][] result = new double[data.length][2];
-        // result[i][0] -> new salary, result[i][1] -> bonus
+    // Calculate bonus and new salary for each employee
+    public static double[][] calculateBonus(int[][] employeeData) {
+        int n = employeeData.length;
+        double[][] newData = new double[n][2]; // [newSalary, bonus]
 
-        for (int i = 0; i < data.length; i++) {
-            double salary = data[i][0];
-            int years = data[i][1];
+        for (int i = 0; i < n; i++) {
+            double salary = employeeData[i][0];
+            int years = employeeData[i][1];
 
-            // Bonus is 5% if years > 5, otherwise 2%
-            double bonus = (years > 5) ? salary * 0.05 : salary * 0.02;
+            // Bonus calculation: 5% if years > 5, else 2%
+            double bonus = (years > 5) ? 0.05 * salary : 0.02 * salary;
 
-            result[i][0] = salary + bonus; // Updated salary
-            result[i][1] = bonus;          // Bonus amount
+            newData[i][0] = salary + bonus; // New salary
+            newData[i][1] = bonus;          // Bonus
         }
-        return result;
+
+        return newData;
     }
 
-    // Method to print individual employee details and totals
-    public static void printResults(int[][] data, double[][] result) {
-        double totalOld = 0, totalNew = 0, totalBonus = 0;
-        // Variables to store total salaries and bonus
+    // Print employee data and summary of salaries and bonuses
+    public static void printResults(int[][] employeeData, double[][] newData) {
+        double totalOldSalary = 0;
+        double totalNewSalary = 0;
+        double totalBonus = 0;
 
-        for (int i = 0; i < data.length; i++) {
-            totalOld += data[i][0];    // Sum of old salaries
-            totalNew += result[i][0];  // Sum of new salaries
-            totalBonus += result[i][1]; // Sum of bonuses
+        for (int i = 0; i < employeeData.length; i++) {
+            int emp = i + 1;
+            int oldSalary = employeeData[i][0];
+            int years = employeeData[i][1];
+            double bonus = newData[i][1];
+            double newSalary = newData[i][0];
 
-            System.out.println("Employee " + (i + 1));
-            System.out.println("Old Salary: " + data[i][0]);
-            System.out.println("Years: " + data[i][1]);
-            System.out.println("Bonus: " + result[i][1]);
-            System.out.println("New Salary: " + result[i][0]);
+            totalOldSalary += oldSalary;
+            totalNewSalary += newSalary;
+            totalBonus += bonus;
+
+            // Display individual employee data
+            System.out.println("Employee " + emp + ":");
+            System.out.println("  Old Salary: " + oldSalary);
+            System.out.println("  Years of Service: " + years);
+            System.out.println("  Bonus: " + bonus);
+            System.out.println("  New Salary: " + newSalary);
             System.out.println();
         }
 
-        // Printing final totals
-        System.out.println("Total Old Salary: " + totalOld);
+        // Display totals
+        System.out.println("Total Old Salary: " + totalOldSalary);
         System.out.println("Total Bonus: " + totalBonus);
-        System.out.println("Total New Salary: " + totalNew);
+        System.out.println("Total New Salary: " + totalNewSalary);
     }
 
+    // Main method to execute the program
     public static void main(String[] args) {
-
-        // Generate data for 10 employees
-        int[][] employees = generateEmployeeData(10);
-
-        // Calculate bonus and updated salary
-        double[][] updated = calculateBonus(employees);
-
-        // Print all results
-        printResults(employees, updated);
+        int numEmployees = 10;                   // Number of employees
+        int[][] employeeData = generateEmployeeData(numEmployees); // Generate data
+        double[][] newData = calculateBonus(employeeData);         // Calculate bonus & new salary
+        printResults(employeeData, newData);                        // Display results
     }
 }

@@ -1,42 +1,43 @@
-/*
- This program calculates how chocolates are distributed
- among a given number of children.
- It uses a separate method to determine how many
- chocolates each child gets and how many remain.
- The program demonstrates method creation,
- method calling, user input, integer division,
- and modulus operation in Java.
-*/
-
 package coreprogramming.programmingelements.level2;
 
-import java.util.Scanner; // imports Scanner class to take input from the user
+import java.util.Scanner;
 
+/*
+ * This program calculates how many chocolates
+ * each child gets and how many remain undistributed.
+ */
 public class Chocolate {
 
+    /*
+     * This method divides chocolates among children
+     * and prints the result.
+     */
     public static void divideChocolates(int numberOfChocolates, int numberOfChildren) {
-        // calculates chocolates each child gets using integer division
+
+        // Calculating chocolates each child gets
         int eachChildGets = numberOfChocolates / numberOfChildren;
 
-        // calculates remaining chocolates using modulus operator
+        // Calculating remaining chocolates
         int remaining = numberOfChocolates % numberOfChildren;
 
-        System.out.println(
-                "The number of chocolates each child gets is " + eachChildGets
-                        + " and the number of remaining chocolates are " + remaining + "."
-        ); // displays distribution result
+        // Displaying the result
+        System.out.println("The number of chocolates each child gets is " +
+                eachChildGets + " and the number of remaining chocolates are " +
+                remaining + ".");
     }
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in); // creates Scanner object for reading input
+        // Taking input from the user
+        Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter number of chocolates: "); // prompts user to enter chocolates count
-        int numberOfChocolates = input.nextInt(); // reads number of chocolates
+        System.out.print("Enter number of chocolates: ");
+        int numberOfChocolates = input.nextInt();
 
-        System.out.print("Enter number of children: "); // prompts user to enter children count
-        int numberOfChildren = input.nextInt(); // reads number of children
+        System.out.print("Enter number of children: ");
+        int numberOfChildren = input.nextInt();
 
-        divideChocolates(numberOfChocolates, numberOfChildren); // calls method to divide chocolates
+        // Calling method to divide chocolates
+        divideChocolates(numberOfChocolates, numberOfChildren);
     }
 }

@@ -1,73 +1,70 @@
-/*
- This program calculates the GCD (Greatest Common Divisor)
- and LCM (Least Common Multiple) of two numbers entered by the user.
- It demonstrates:
- - Method calls
- - Euclidean Algorithm for GCD
- - Formula-based LCM calculation
- - User input using Scanner
-*/
-package coreprogramming.extrasbuiltin;
-// Package declaration for extra built-in programs
+package coreprogramming.extrasbuiltIn;
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
 public class GcdLcmCalculator {
-    // Class to calculate GCD and LCM of two numbers
+
+    /*
+     * This program calculates the GCD (Greatest Common Divisor) and LCM (Least Common Multiple)
+     * of two integers entered by the user. 
+     * 
+     * GCD is the largest integer that divides both numbers without remainder.
+     * LCM is the smallest integer divisible by both numbers.
+     * The program demonstrates user input, loops, arithmetic operations, and method usage in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where program execution starts
-
+        // Create Scanner object to read input from the user
         Scanner scanner = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt user to enter the first number
         System.out.print("Enter the first number: ");
         int num1 = scanner.nextInt();
-        // Reading the first number from the user
 
+        // Prompt user to enter the second number
         System.out.print("Enter the second number: ");
         int num2 = scanner.nextInt();
-        // Reading the second number from the user
 
+        // Calculate GCD of the two numbers
         int gcd = calculateGCD(num1, num2);
-        // Calling method to calculate GCD of the two numbers
 
+        // Calculate LCM of the two numbers using GCD
         int lcm = calculateLCM(num1, num2, gcd);
-        // Calling method to calculate LCM using the calculated GCD
 
+        // Display the results
         System.out.println("GCD of " + num1 + " and " + num2 + " is: " + gcd);
-        // Displaying the GCD result
-
         System.out.println("LCM of " + num1 + " and " + num2 + " is: " + lcm);
-        // Displaying the LCM result
+
+        // Close the Scanner object to free resources
+        scanner.close();
     }
 
-    // Method to calculate GCD using Euclidean Algorithm
+    /**
+     * Calculates the GCD of two numbers using the Euclidean algorithm.
+     *
+     *  a First number
+     *  b Second number
+     *  GCD of a and b
+     */
     public static int calculateGCD(int a, int b) {
-
-        // Loop runs until the remainder becomes zero
+        // Use Euclidean algorithm iteratively
         while (b != 0) {
-
             int temp = b;
-            // Temporarily storing the value of b
-
-            b = a % b;
-            // Updating b with the remainder of a divided by b
-
-            a = temp;
-            // Assigning previous b value to a
+            b = a % b; // Remainder becomes new b
+            a = temp;  // Previous b becomes new a
         }
-
         return a;
-        // Returning a as it contains the GCD when b becomes 0
     }
 
-    // Method to calculate LCM using the formula:
-    // LCM(a, b) = (a × b) / GCD(a, b)
+    /**
+     * Calculates the LCM of two numbers using their GCD.
+     *
+     *  a   First number
+     *  b   Second number
+     *  gcd GCD of a and b
+     *  LCM of a and b
+     */
     public static int calculateLCM(int a, int b, int gcd) {
-
         return (a * b) / gcd;
-        // Returning the calculated LCM value
     }
 }

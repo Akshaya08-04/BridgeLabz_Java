@@ -1,43 +1,63 @@
-/*
- This program calculates the sum of the first N natural numbers.
- It ensures the user enters a valid positive number,
- uses the mathematical formula n*(n+1)/2 to find the sum,
- and compares the result with the original number.
-*/
-package coreprogramming.controlflowpractices.level1; // Package for Level 1 control flow practice programs
+/**
+ * Program Name: CountingNumbers
+ *
+ * Description:
+ * This program calculates the sum of the first N natural numbers entered by the user.
+ * It also checks if the input number is equal to the sum of numbers from 1 to that number.
+ *
+ * Steps:
+ * 1. Input a number from the user.
+ * 2. Validate that the number is greater than 0.
+ * 3. Calculate the sum using the formula: sum = n * (n + 1) / 2.
+ * 4. Display the sum.
+ * 5. Check if the input number is equal to the sum.
+ *    - Display appropriate message based on the check.
+ *
+ * Concepts Used:
+ * - Loops (while loop)
+ * - Conditional statements (if-else)
+ * - Input validation
+ * - Arithmetic operations
+ * - Scanner for user input
+ */
+package coreprogramming.controlflowpractices.level1;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
-public class CountingNumbers { // Main class
-    public static void main(String[] args) { // Entry point of the program
+public class CountingNumbers {
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read input
+    public static void main(String[] args) {
 
-        System.out.print("Enter number: "); // Prompting user to enter a number
-        int number = input.nextInt(); // Reading the number from the user
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
 
-        // Loop to ensure the number entered is greater than zero
+        // Getting number input from user
+        System.out.print("Enter number: ");
+        int number = input.nextInt();
+
+        // Input validation: number must be greater than 0
         while (number <= 0) {
-            System.out.print("Enter a number greater than zero: "); // Asking again for valid input
-            number = input.nextInt(); // Reading corrected input
+            System.out.print("Enter a number greater than zero: ");
+            number = input.nextInt();
         }
 
-        int sum = 0; // Variable to store the sum of first 'number' natural numbers
+        int sum = 0;
 
-        // Loop used to calculate the sum using formula
+        // Calculate sum of first N natural numbers using formula
         while (number > 0) {
-            sum = number * (number + 1) / 2; // Formula for sum of first n natural numbers
-            break; // Breaking because calculation is needed only once
+            sum = number * (number + 1) / 2;
+            break; // exit loop after calculation
         }
 
-        System.out.println("The sum of " + number + " numbers is: " + sum + "."); // Displaying the sum
+        // Display the sum
+        System.out.println("The sum of " + number + " numbers is: " + sum + ".");
 
-        // Checking whether the given number is equal to the calculated sum
+        // Check if the number is equal to the sum
         if (number == sum) {
             System.out.println("The number is equal to the sum of " + number + " numbers");
-        }
-        else {
+        } else {
             System.out.println("The number is not equal to the sum of " + number + " numbers");
         }
     }
 }
+

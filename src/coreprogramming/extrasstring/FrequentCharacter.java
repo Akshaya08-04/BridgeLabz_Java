@@ -1,64 +1,46 @@
-/*
- This program finds the most frequent character in a given string.
- It reads a string from the user, checks each character,
- counts its occurrences, and identifies the character
- with the highest frequency.
-*/
-package coreprogramming.Extras;
+package coreprogramming.extrasstring;
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
 public class FrequentCharacter {
-    // Class that contains the logic to find the most frequent character
+
+    /*
+     * This program finds the most frequent character in a given string entered by the user.
+     * It demonstrates string manipulation, loops, and counting techniques in Java.
+     * Example: Input "programming" → Most frequent character: 'g'
+     */
 
     public static void main(String[] args) {
-        // Main method where execution starts
-
+        // Create Scanner object to read user input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt user to enter a string
         System.out.print("Enter a string: ");
-        // Prompting the user to enter a string
         String text = input.nextLine();
-        // Reading the input string
 
-        int count = 0;
-        // Variable to count occurrences of the current character
+        int maxCount = 0;       // Tracks the highest frequency of any character
+        char mostFrequent = ' '; // Stores the most frequent character
 
-        int maxCount = 0;
-        // Variable to store the maximum frequency found so far
-
-        char mostFrequent = ' ';
-        // Variable to store the most frequent character
-
-        // Loop to iterate through each character in the string
+        // Loop through each character of the string
         for (int i = 0; i < text.length(); i++) {
-
             char ch = text.charAt(i);
-            // Storing the current character
+            int count = 0; // Frequency of current character
 
-            count = 0;
-            // Resetting count for the new character
-
-            // Loop to count frequency of the current character
+            // Count occurrences of ch in the entire string
             for (int j = 0; j < text.length(); j++) {
                 if (text.charAt(j) == ch) {
                     count++;
-                    // Incrementing count if characters match
                 }
             }
 
-            // Checking if current character frequency is greater than maxCount
+            // Update maxCount and mostFrequent if current character has higher frequency
             if (count > maxCount) {
                 maxCount = count;
-                // Updating maximum frequency
                 mostFrequent = ch;
-                // Updating the most frequent character
             }
         }
 
+        // Display the most frequent character
         System.out.println("Most frequent character: '" + mostFrequent + "'");
-        // Printing the most frequent character
     }
 }

@@ -1,45 +1,40 @@
-/*
- This program calculates the bonus for an employee.
- It takes salary and years of service as input.
- If the years of service are greater than 5,
- the employee receives a 5% bonus on the salary.
-*/
 package coreprogramming.controlflowpractices.level2;
-// Package declaration for Level 2 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class Bonus {
-    // Main class definition
+
+    /*
+     * This program calculates a bonus for an employee based on years of service.
+     * If the employee has more than 5 years of service, they receive 5% of their salary as a bonus.
+     * Otherwise, no bonus is given.
+     */
 
     public static void main(String[] args) {
 
+        // Creating a Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompting the user to enter the salary
         System.out.print("Enter salary: ");
-        // Prompting user to enter salary
         double salary = input.nextDouble();
-        // Reading the employee's salary
 
+        // Prompting the user to enter years of service
         System.out.print("Enter years of service: ");
-        // Prompting user to enter years of service
         double years = input.nextDouble();
-        // Reading the number of years the employee has worked
 
-        // Checking if the employee is eligible for bonus
+        // Checking if the employee is eligible for a bonus
         if (years > 5) {
 
+            // Calculating 5% of salary as bonus
             double bonus = (salary * 5) / 100;
-            // Calculating 5% bonus on the salary
 
+            // Displaying the bonus
             System.out.println("The bonus received is: " + bonus);
-            // Displaying the calculated bonus
-        }
-        else {
+        } else {
+
+            // Informing that no bonus is given
             System.out.println("No bonus.");
-            // Displayed when service is 5 years or less
         }
     }
 }

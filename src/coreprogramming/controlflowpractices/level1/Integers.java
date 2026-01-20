@@ -1,29 +1,42 @@
-/*
- This program checks whether a given integer is positive, negative, or zero.
- It uses conditional statements (if–else if–else) to compare the input value
- and prints the corresponding result.
-*/
-package coreprogramming.controlflowpractices.level1; // Defines the package for control flow practice programs
+/**
+ * Program Name: Integers
+ *
+ * Description:
+ * This program reads an integer input from the user and determines whether
+ * the number is positive, negative, or zero. It then displays the result.
+ *
+ * Steps:
+ * 1. Input an integer from the user.
+ * 2. Use if-else statements to determine the sign of the number.
+ * 3. Display whether the number is Positive, Negative, or Zero.
+ *
+ * Concepts Used:
+ * - Conditional statements (if-else)
+ * - Scanner for user input
+ */
 
-import java.util.Scanner; // Imports Scanner class to take input from the user
+package coreprogramming.controlflowpractices.level1;
 
-public class Integers { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read user input
+public class Integers {
 
-        System.out.print("Enter a number: "); // Prompting the user to enter a number
-        int number = input.nextInt(); // Reading an integer value from the user
+    public static void main(String[] args) {
 
-        // Checking whether the number is positive, negative, or zero
-        if (number > 0) { // Condition to check if the number is greater than zero
-            System.out.println("Positive."); // Prints when the number is positive
-        }
-        else if (number < 0) { // Condition to check if the number is less than zero
-            System.out.println("Negative."); // Prints when the number is negative
-        }
-        else { // Executes when the number is neither positive nor negative
-            System.out.println("Zero."); // Prints when the number is zero
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
+
+        // Getting integer input from user
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
+
+        // Determine the sign of the number
+        if (number > 0) {
+            System.out.println("Positive.");
+        } else if (number < 0) {
+            System.out.println("Negative.");
+        } else {
+            System.out.println("Zero.");
         }
     }
 }

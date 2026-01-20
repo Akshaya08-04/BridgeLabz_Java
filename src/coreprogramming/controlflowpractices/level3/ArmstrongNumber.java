@@ -1,67 +1,58 @@
-/*
- This program checks whether a given number is an Armstrong Number.
- An Armstrong number is a number that is equal to the sum of its digits
- each raised to the power of the total number of digits.
-*/
 package coreprogramming.controlflowpractices.level3;
-// Package declaration for Level 3 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class ArmstrongNumber {
-    // Main class definition
 
+    /* 
+     * This program checks whether a given number is an Armstrong number or not.
+     * An Armstrong number (also known as narcissistic number) is a number 
+     * that is equal to the sum of its digits each raised to the power 
+     * of the number of digits in the number.
+     * Example: 153 is an Armstrong number because 1^3 + 5^3 + 3^3 = 153
+     */
+     
     public static void main(String[] args) {
-        // Main method where program execution begins
-
+        // Create a Scanner object to read input from user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read input from the user
-
+        
+        // Prompt the user to enter a number
         System.out.print("Enter number: ");
-        // Prompting the user to enter a number
+        
+        // Read the integer entered by the user
         int N = input.nextInt();
-        // Reading the number entered by the user
-
+        
+        // Calculate the number of digits in the given number
         int length = (int) Math.log10(N) + 1;
-        // Calculating the number of digits in the number
-        // log10(N) gives digits - 1, so adding 1 gives total digits
-
         System.out.println("The length of the given number is: " + length);
-        // Displaying the number of digits
-
+        
+        // Store the original number in a separate variable for comparison
         int original = N;
-        // Storing the original number for comparison later
-
         System.out.println("The original number is: " + original);
-        // Displaying the original number
-
+        
+        // Initialize sum to store the sum of digits raised to the power of length
         int sum = 0;
-        // Variable to store the sum of digits raised to power length
-
-        // Loop to extract each digit and compute Armstrong sum
+        
+        // Loop through each digit of the number
         while (N > 0) {
-
+            // Extract the last digit of the number
             int digit = N % 10;
-            // Extracting the last digit of the number
-
+            
+            // Raise the digit to the power of length and add it to sum
             sum += Math.pow(digit, length);
-            // Raising the digit to the power of number of digits and adding to sum
-
+            
+            // Remove the last digit from the number
             N = N / 10;
-            // Removing the last digit from the number
         }
-
-        System.out.println("The sum of the given number is: " + sum);
-        // Displaying the calculated Armstrong sum
-
-        // Checking whether the number is an Armstrong number
+        
+        // Print the calculated sum
+        System.out.println("The sum of the digits raised to power " + length + " is: " + sum);
+        
+        // Compare sum with the original number to check Armstrong condition
         if (original == sum) {
             System.out.println("The given number is an Armstrong number.");
-            // Printed if the number satisfies Armstrong condition
         } else {
             System.out.println("The given number is not an Armstrong number.");
-            // Printed if the number does not satisfy Armstrong condition
         }
     }
 }

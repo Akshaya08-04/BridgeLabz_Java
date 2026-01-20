@@ -1,111 +1,78 @@
-/*
- This program determines:
- 1) The youngest friend among Amar, Akbar, and Anthony based on their ages
- 2) The tallest friend among Amar, Akbar, and Anthony based on their heights
- It takes user input for ages and heights, compares them using methods,
- and prints the youngest and tallest friend.
-*/
 package coreprogramming.javamethods.level2;
-// Package declaration for Java Methods Level 2 programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
+/*
+ * YoungestAndTallestFriend class
+ * -------------------------------
+ * This class determines:
+ * 1. The youngest friend among Amar, Akbar, and Anthony based on age.
+ * 2. The tallest friend among Amar, Akbar, and Anthony based on height.
+ * 
+ * It contains two methods:
+ * - youngestFriend(int, int, int): Returns the name of the youngest friend.
+ * - tallestFriend(float, float, float): Returns the name of the tallest friend.
+ * 
+ * The main method reads ages and heights from the user and prints the results.
+ */
 public class YoungestAndTallestFriend {
-    // Class to find the youngest and tallest friend
 
-    // Method to determine the youngest friend based on ages
+    // Method to find the youngest friend based on age
     public static String youngestFriend(int amarAge, int akbarAge, int anthonyAge) {
-
-        // Checking if Amar is younger than both Akbar and Anthony
-        if (amarAge < akbarAge && amarAge < anthonyAge) {
+        if (amarAge < akbarAge && amarAge < anthonyAge) { // Amar is younger than both
             return "Amar";
-            // Returning Amar as the youngest
-        }
-        // Checking if Akbar is younger than both Amar and Anthony
-        else if (akbarAge < amarAge && akbarAge < anthonyAge) {
+        } else if (akbarAge < amarAge && akbarAge < anthonyAge) { // Akbar is younger than both
             return "Akbar";
-            // Returning Akbar as the youngest
-        }
-        // Checking if Anthony is younger than both Amar and Akbar
-        else if (anthonyAge < amarAge && anthonyAge < akbarAge) {
+        } else if (anthonyAge < amarAge && anthonyAge < akbarAge) { // Anthony is younger than both
             return "Anthony";
-            // Returning Anthony as the youngest
-        }
-        // Case where two or more friends have the same age
-        else {
+        } else { // If two or more friends have the same youngest age
             return "Same age";
-            // Returning message for equal ages
         }
     }
 
-    // Method to determine the tallest friend based on heights
+    // Method to find the tallest friend based on height
     public static String tallestFriend(float amarHeight, float akbarHeight, float anthonyHeight) {
-
-        // Checking if Amar is taller than both Akbar and Anthony
-        if (amarHeight > akbarHeight && amarHeight > anthonyHeight) {
+        if (amarHeight > akbarHeight && amarHeight > anthonyHeight) { // Amar is taller than both
             return "Amar";
-            // Returning Amar as the tallest
-        }
-        // Checking if Akbar is taller than both Amar and Anthony
-        else if (akbarHeight > amarHeight && akbarHeight > anthonyHeight) {
+        } else if (akbarHeight > amarHeight && akbarHeight > anthonyHeight) { // Akbar is taller than both
             return "Akbar";
-            // Returning Akbar as the tallest
-        }
-        // Checking if Anthony is taller than both Amar and Akbar
-        else if (anthonyHeight > amarHeight && anthonyHeight > akbarHeight) {
+        } else if (anthonyHeight > amarHeight && anthonyHeight > akbarHeight) { // Anthony is taller than both
             return "Anthony";
-            // Returning Anthony as the tallest
-        }
-        // Case where two or more friends have the same height
-        else {
+        } else { // If two or more friends have the same tallest height
             return "Same height";
-            // Returning message for equal heights
         }
     }
 
+    // Main method to read ages and heights from user and display results
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in); // Scanner object for input
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
-
+        // Read ages of the three friends
         System.out.print("Enter Amar's age: ");
         int amarAge = input.nextInt();
-        // Reading Amar's age
 
         System.out.print("Enter Akbar's age: ");
         int akbarAge = input.nextInt();
-        // Reading Akbar's age
 
         System.out.print("Enter Anthony's age: ");
         int anthonyAge = input.nextInt();
-        // Reading Anthony's age
 
+        // Read heights of the three friends
         System.out.print("Enter Amar's height: ");
         float amarHeight = input.nextFloat();
-        // Reading Amar's height
 
         System.out.print("Enter Akbar's height: ");
         float akbarHeight = input.nextFloat();
-        // Reading Akbar's height
 
         System.out.print("Enter Anthony's height: ");
         float anthonyHeight = input.nextFloat();
-        // Reading Anthony's height
 
+        // Find youngest and tallest friends using the methods
         String youngest = youngestFriend(amarAge, akbarAge, anthonyAge);
-        // Calling method to find the youngest friend
-
         String tallest = tallestFriend(amarHeight, akbarHeight, anthonyHeight);
-        // Calling method to find the tallest friend
 
+        // Print the results
         System.out.println("The youngest friend is: " + youngest);
-        // Printing the youngest friend
-
         System.out.println("The tallest friend is: " + tallest);
-        // Printing the tallest friend
-
-        input.close();
-        // Closing the Scanner
     }
 }

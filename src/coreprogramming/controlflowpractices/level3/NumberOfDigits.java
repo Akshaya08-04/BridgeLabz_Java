@@ -1,42 +1,37 @@
-/*
- This program counts the number of digits in a given integer.
- It repeatedly removes the last digit of the number using division
- and increments a counter until the number becomes zero.
-*/
 package coreprogramming.controlflowpractices.level3;
-// Package declaration for Level 3 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class NumberOfDigits {
-    // Main class definition
+
+    /*
+     * This program calculates the number of digits in a given integer.
+     * It reads a number from the user and counts how many digits it contains.
+     * This program demonstrates user input, loops, and arithmetic operations in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where program execution begins
 
+        // Create a Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read input from the user
 
+        // Prompt the user to enter a number
         System.out.print("Enter a number: ");
         int N = input.nextInt();
-        // Reading an integer number from the user
 
+        // Initialize count to store the number of digits
         int count = 0;
-        // Variable to store the count of digits
 
-        // Loop runs until the number becomes 0
-        // Each iteration removes one digit
+        // Loop until the number becomes 0
         while (N != 0) {
-
+            // Remove the last digit from the number
             N = N / 10;
-            // Removing the last digit of the number
 
+            // Increment the digit count
             count++;
-            // Increasing the digit count by 1
         }
 
-        System.out.println(count);
-        // Printing the total number of digits in the given number
+        // Print the number of digits
+        System.out.println("Number of digits: " + count);
     }
 }

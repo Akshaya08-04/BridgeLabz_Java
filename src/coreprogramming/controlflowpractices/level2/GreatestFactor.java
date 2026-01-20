@@ -1,45 +1,38 @@
-/*
- This program finds the greatest factor of a given number
- excluding the number itself.
- It checks all possible factors starting from (number - 1)
- and stops as soon as the largest factor is found.
-*/
 package coreprogramming.controlflowpractices.level2;
-// Package declaration for Level 2 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class GreatestFactor {
-    // Main class definition
+
+    /*
+     * This program finds the greatest factor of a number other than itself.
+     * Steps:
+     * 1. Take a positive integer input from the user.
+     * 2. Loop from number-1 down to 1 to find the largest factor.
+     * 3. Print the greatest factor found.
+     */
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
+        Scanner input = new Scanner(System.in); // Scanner for user input
 
+        // Prompt user to enter a number
         System.out.print("Enter a number: ");
-        // Prompting user to enter a number
         int number = input.nextInt();
-        // Reading the number for which the greatest factor is to be found
 
-        int greatestFactor = 1;
-        // Initializing greatest factor as 1
-        // 1 is a factor of every integer
+        int greatestFactor = 1; // Initialize greatest factor
 
-        // Loop starts from (number - 1) and goes down to 1
+        // Loop from number-1 down to 1
         for (int i = number - 1; i >= 1; i--) {
-
-            // Checking if the current value divides the number completely
-            if (number % i == 0) {
-                greatestFactor = i;
-                // Assigning the first (largest) factor found
-                break;
-                // Breaking because we want the greatest factor less than the number
+            if (number % i == 0) { // Check if i is a factor
+                greatestFactor = i; // Update greatest factor
+                break; // Stop loop once the first (largest) factor is found
             }
         }
 
+        // Display the result
         System.out.println("Greatest factor: " + greatestFactor);
-        // Displaying the greatest factor of the number
+
+        input.close(); // Close scanner
     }
 }

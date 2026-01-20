@@ -1,45 +1,69 @@
-/*
- This program calculates the mean (average) height of a football team.
- It takes the heights of 11 players as input, stores them in an array,
- displays the heights, calculates the total sum, and finally computes
- the average height of the team.
-*/
-package coreprogramming.arraypractice.level1; // Defines the package for this program
+/**
+ * Program Name: FootBallTeam
+ *
+ * Description:
+ * This program stores the heights of 11 football players in an array.
+ * It accepts height values from the user, displays them, calculates
+ * the total height, and then computes the mean (average) height.
+ *
+ * Concepts Used:
+ * - Arrays
+ * - Loops
+ * - User input using Scanner
+ * - Basic arithmetic operations
+ */
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+package coreprogramming.arraypractice.level1;
 
-public class FootBallTeam { // Defines the main class
-    public static void main(String[] args) { // Main method where execution starts
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read user input
+public class FootBallTeam {
 
-        double[] heights = new double[11]; // Declaring an array to store heights of 11 players
+    public static void main(String[] args) {
 
-        System.out.print("Enter height of 11 players: "); // Prompts user to enter heights
+        // Creating Scanner object to take input from the user
+        Scanner input = new Scanner(System.in);
 
-        // Loop to read heights of all 11 players
-        for (int i = 0; i < 11; i++) { // Iterates 11 times
-            heights[i] = input.nextDouble(); // Stores each player's height in the array
+        // Declaring an array to store heights of 11 football players
+        double[] heights = new double[11];
+
+        // Prompting the user to enter heights
+        System.out.print("Enter height of 11 players: ");
+
+        // Loop to read height values into the array
+        for (int i = 0; i < 11; i++) {
+
+            // Storing each height entered by the user
+            heights[i] = input.nextDouble();
         }
 
-        System.out.print("The entered heights are: "); // Message before displaying heights
+        // Displaying the heights entered by the user
+        System.out.print("The entered heights are: ");
 
-        // Loop to display the entered heights
-        for (int i = 0; i < 11; i++) { // Iterates through the array
-            System.out.println(heights[i] + " "); // Prints each height
+        // Loop to print all height values
+        for (int i = 0; i < 11; i++) {
+
+            // Printing each player's height
+            System.out.println(heights[i] + " ");
         }
 
-        double sum = 0; // Variable to store the total sum of heights
+        // Variable to store the sum of heights
+        int sum = 0;
 
         // Loop to calculate the sum of all heights
-        for (int i = 0; i < 11; i++) { // Iterates through the array
-            sum += heights[i]; // Adds each player's height to sum
+        for (int i = 0; i < 11; i++) {
+
+            // Adding each height to the sum
+            sum += heights[i];
         }
 
-        System.out.println("The sum of heights is: " + sum); // Displays total sum
+        // Displaying the total sum of heights
+        System.out.println("The sum of heights is: " + sum);
 
-        double meanHeight = sum / 11; // Calculates the mean (average) height
+        // Calculating the mean (average) height
+        double meanHeight = sum / 11;
 
-        System.out.println("The mean height of 11 football players is: " + meanHeight); // Displays mean height
+        // Displaying the mean height of the football players
+        System.out.println("The mean height of 11 football players is: " + meanHeight);
     }
 }

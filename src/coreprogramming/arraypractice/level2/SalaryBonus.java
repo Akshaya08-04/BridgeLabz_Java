@@ -1,102 +1,100 @@
-/*
- This program calculates bonus and revised salary for employees.
- It takes salary and years of service for 10 employees,
- applies bonus rules based on service duration,
- and calculates total old salary, total bonus, and total new salary.
-*/
-package coreprogramming.arraypractice.level2; // Defines the package for Level 2 array practice programs
+/**
+ * Program Name: SalaryBonus
+ *
+ * Description:
+ * This program calculates bonuses for 10 employees based on their years of service.
+ * It computes the new salary for each employee, and also calculates total old salary,
+ * total bonus payout, and total new salary.
+ *
+ * Steps:
+ * 1. Input salary and years of service for 10 employees.
+ * 2. Validate input (salary must be positive, service cannot be negative).
+ * 3. Compute bonus:
+ *    - If years of service > 5, bonus = 5% of salary
+ *    - Else, bonus = 2% of salary
+ * 4. Calculate new salary = old salary + bonus.
+ * 5. Accumulate totals for old salary, bonus payout, and new salary.
+ * 6. Display total old salary, total bonus, and total new salary.
+ *
+ * Concepts Used:
+ * - Arrays
+ * - Loops
+ * - Conditional statements
+ * - Accumulation of totals
+ * - Input validation
+ * - Scanner for user input
+ */
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+package coreprogramming.arraypractice.level2;
 
-public class SalaryBonus { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+import java.util.Scanner;
 
+public class SalaryBonus {
+
+    public static void main(String[] args) {
+
+        // Creating Scanner object to read input from the user
         Scanner sc = new Scanner(System.in);
-        // Creating Scanner object to read input
 
+        // Number of employees
         int n = 10;
-        // Total number of employees
 
+        // Arrays to store salary, years of service, bonus, and new salary
         double[] salary = new double[n];
-        // Array to store salary of each employee
-
         double[] service = new double[n];
-        // Array to store years of service of each employee
-
         double[] bonus = new double[n];
-        // Array to store calculated bonus for each employee
-
         double[] newSalary = new double[n];
-        // Array to store salary after adding bonus
 
+        // Variables to store totals
         double totalBonus = 0;
-        // Variable to store total bonus payout
-
         double totalOldSalary = 0;
-        // Variable to store total original salary
-
         double totalNewSalary = 0;
-        // Variable to store total salary after bonus
 
-        // Loop to take salary and service input for each employee
+        // Input salary and service for each employee
         for (int i = 0; i < n; i++) {
-
             System.out.println("\nEnter details for Employee " + (i + 1));
-            // Displays employee number
 
+            // Input salary
             System.out.print("Enter salary: ");
             salary[i] = sc.nextDouble();
-            // Reads salary
 
+            // Input years of service
             System.out.print("Enter years of service: ");
             service[i] = sc.nextDouble();
-            // Reads years of service
 
-            // Validation to ensure correct input
+            // Validate input
             if (salary[i] <= 0 || service[i] < 0) {
                 System.out.println("Invalid input! Please enter again.");
-                i--;
-                // Decrements index to re-enter details
+                i--; // Repeat input for this employee
                 continue;
-                // Skips remaining code for this iteration
             }
         }
 
-        // Loop to calculate bonus and new salary
+        // Calculate bonus and new salary for each employee
         for (int i = 0; i < n; i++) {
 
-            // Bonus calculation based on service years
+            // Bonus calculation based on service
             if (service[i] > 5) {
-                bonus[i] = salary[i] * 0.05;
-                // 5% bonus for service more than 5 years
+                bonus[i] = salary[i] * 0.05; // 5% bonus
             } else {
-                bonus[i] = salary[i] * 0.02;
-                // 2% bonus for service 5 years or less
+                bonus[i] = salary[i] * 0.02; // 2% bonus
             }
 
+            // Calculate new salary
             newSalary[i] = salary[i] + bonus[i];
-            // Calculates new salary after bonus
 
+            // Accumulate totals
             totalBonus += bonus[i];
-            // Adds to total bonus
-
             totalOldSalary += salary[i];
-            // Adds to total old salary
-
             totalNewSalary += newSalary[i];
-            // Adds to total new salary
         }
 
+        // Display totals
         System.out.println("Total Old Salary: ₹" + totalOldSalary);
-        // Displays total original salary
-
         System.out.println("Total Bonus Payout: ₹" + totalBonus);
-        // Displays total bonus amount
-
         System.out.println("Total New Salary: ₹" + totalNewSalary);
-        // Displays total salary after bonus
 
+        // Close the scanner
         sc.close();
-        // Closing Scanner to release system resources
     }
 }

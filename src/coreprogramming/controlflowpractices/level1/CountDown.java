@@ -1,33 +1,54 @@
-/*
- This program performs a countdown for a rocket launch.
- It ensures the user enters a valid number (≥ 1),
- then counts down to 1 and finally displays a launch message.
-*/
-package coreprogramming.controlflowpractices.level1; // Package for control flow practice programs (Level 1)
+/**
+ * Program Name: CountDown
+ *
+ * Description:
+ * This program takes a number from the user and performs a countdown from that number to 1.
+ * It ensures that the input number is greater than 0 before starting the countdown.
+ * After reaching 1, it prints a message indicating the launch of a rocket.
+ *
+ * Steps:
+ * 1. Input a number from the user.
+ * 2. Validate that the number is greater than 0.
+ * 3. Perform a countdown using a while loop.
+ * 4. Print each number during the countdown.
+ * 5. Display "Launch the rocket" after countdown reaches 0.
+ *
+ * Concepts Used:
+ * - Loops (while loop)
+ * - Input validation
+ * - Scanner for user input
+ * - Decrementing a number
+ */
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+package coreprogramming.controlflowpractices.level1;
 
-public class CountDown { // Main class
-    public static void main(String[] args) { // Program execution starts here
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object
+public class CountDown {
 
-        System.out.print("Enter number: "); // Prompting user
-        int number = input.nextInt(); // Reading starting number for countdown
+    public static void main(String[] args) {
 
-        // Validating input to ensure number is at least 1
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
+
+        // Getting number input from user
+        System.out.print("Enter number: ");
+        int number = input.nextInt();
+
+        // Ensure the number is greater than 0
         while (number < 1) {
             System.out.print("Enter a number greater than 1: ");
             number = input.nextInt();
         }
 
-        // Countdown loop from the given number to 1
+        // Countdown loop
         while (number >= 1) {
             System.out.println("The countdown: " + number);
-            number--; // Decrementing the number
+            number--; // Decrement the number
         }
 
-        // Final message after countdown
+        // Printing final message
         System.out.println("Launch the rocket");
     }
 }
+

@@ -1,41 +1,51 @@
-/*
- This program performs a rocket countdown.
- It takes a number from the user and counts down to 1,
- then prints a launch message.
-*/
+/**
+ * Program Name: RocketLaunch
+ *
+ * Description:
+ * This program simulates a countdown for a rocket launch. It asks the user
+ * to enter a starting number greater than 1 and then counts down to 1, 
+ * displaying each number. Once the countdown reaches 1, it prints a launch message.
+ *
+ * Steps:
+ * 1. Input a number greater than 1 from the user.
+ * 2. Validate the input to ensure it is greater than 1.
+ * 3. Use a for loop to count down from the entered number to 1.
+ * 4. Display each countdown number.
+ * 5. Print "Launch the rocket" after countdown completes.
+ *
+ * Concepts Used:
+ * - Loops (for and while)
+ * - Conditional validation
+ * - Scanner for user input
+ */
+
 package coreprogramming.controlflowpractices.level1;
-// Package declaration
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class RocketLaunch {
-    // Main class
+
     public static void main(String[] args) {
 
+        // Creating Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Getting user input
         System.out.print("Enter number: ");
-        // Asking user for starting number
-
         int number = input.nextInt();
-        // Reading the starting number for the countdown
 
-        // Loop to ensure the entered number is valid (>= 1)
+        // Validate input to ensure it is greater than 1
         while (number < 1) {
             System.out.print("Enter a number greater than 1: ");
             number = input.nextInt();
-            // Re-taking input until valid
         }
 
-        // for loop to perform countdown
+        // Loop to perform countdown from the entered number to 1
         for (int i = number; i >= 1; i--) {
             System.out.println("Countdown: " + i);
-            // Printing countdown number
         }
 
+        // Printing rocket launch message
         System.out.println("Launch the rocket");
-        // Final launch message
     }
 }

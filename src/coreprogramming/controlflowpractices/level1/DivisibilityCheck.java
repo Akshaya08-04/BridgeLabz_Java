@@ -1,32 +1,42 @@
-/*
- This program checks whether a given number is divisible by 5.
- It takes user input, applies the modulus operator,
- and displays the result based on the divisibility condition.
-*/
-package coreprogramming.controlflowpractices.level1; // Package for Level 1 control flow practice programs
+/**
+ * Program Name: DivisibilityCheck
+ *
+ * Description:
+ * This program checks if a number entered by the user is divisible by 5.
+ * It displays a message indicating whether the number is divisible or not.
+ *
+ * Steps:
+ * 1. Input a number from the user.
+ * 2. Use the modulus operator (%) to check divisibility by 5.
+ * 3. Display appropriate message based on the check.
+ *
+ * Concepts Used:
+ * - Conditional statements (if-else)
+ * - Modulus operator for divisibility
+ * - Scanner for user input
+ */
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+package coreprogramming.controlflowpractices.level1;
 
-public class DivisibilityCheck { // Main class
-    public static void main(String[] args) { // Entry point of the program
+import java.util.Scanner;
 
+public class DivisibilityCheck {
+
+    public static void main(String[] args) {
+
+        // Creating Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input from the keyboard
 
+        // Getting number input from user
         System.out.print("Enter a number: ");
-        // Prompting the user to enter a number
-
         int number = input.nextInt();
-        // Reading the entered number
 
-        // Checking if the number is divisible by 5 using modulus operator
+        // Check if number is divisible by 5
         if (number % 5 == 0) {
-            // If remainder is 0, the number is divisible by 5
             System.out.println("Is the number " + number + " divisible by 5? Yes");
-        }
-        else {
-            // If remainder is not 0, the number is not divisible by 5
+        } else {
             System.out.println("Is the number " + number + " divisible by 5? No");
         }
     }
 }
+

@@ -1,35 +1,32 @@
-/*
- This program calculates the discount amount and
- the final payable university fee after applying
- a given discount percentage.
- It takes the original fee and discount percentage
- as input from the user.
- The program demonstrates user input, percentage
- calculation, and output in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
-import java.util.Scanner; // imports Scanner class to read input from the user
+import java.util.Scanner;
 
+/*
+ * This program calculates the discount amount
+ * and the final fee after applying the discount.
+ */
 public class UniversityDiscount {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in); // creates Scanner object for user input
+        // Taking fee input from the user
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the fee in INR: ");
+        double fee = input.nextDouble();
 
-        System.out.print("Enter the fee in INR: "); // prompts user to enter original fee
-        double fee = input.nextDouble(); // reads fee amount
+        // Taking discount percentage input from the user
+        System.out.print("Enter the discount percentage (divide by 100) : ");
+        double discountPercent = input.nextDouble();
 
-        System.out.print("Enter the discount percentage (divide by 100): "); // prompts user for discount percentage
-        double discountPercent = input.nextDouble(); // reads discount percentage
+        // Calculating discount amount
+        double discount = fee * discountPercent;
 
-        double discount = fee * discountPercent; // calculates discount amount
-        double discountedFee = fee - discount; // calculates final fee after discount
+        // Calculating final discounted fee
+        double discountedFee = fee - discount;
 
-        System.out.println(
-                "The discount amount is INR " + discount
-                        + " and final discounted fee is INR " + discountedFee + "."
-        ); // displays discount and final fee
+        // Displaying discount and final fee
+        System.out.println("The discount amount is INR " + discount +
+                " and final discounted fee is INR " + discountedFee + ".");
     }
 }

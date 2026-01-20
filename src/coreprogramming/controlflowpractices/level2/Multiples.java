@@ -1,38 +1,37 @@
-/*
- This program prints all numbers between 1 and 100
- that divide the given number exactly.
- The input number must be less than or equal to 100.
-*/
 package coreprogramming.controlflowpractices.level2;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class Multiples {
+
+    /*
+     * This program finds all divisors (factors) of a number entered by the user.
+     * Steps:
+     * 1. Take a number input less than or equal to 100 from the user.
+     * 2. Use a for loop to check divisibility from 1 to 100.
+     * 3. Print all numbers that divide the input evenly.
+     */
+
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
+        Scanner input = new Scanner(System.in); // Scanner for user input
 
+        // Prompt user to enter a number
         System.out.print("Enter a number: ");
         int number = input.nextInt();
-        // Reading the number from the user
 
-        // Loop to ensure the number entered is less than or equal to 100
+        // Ensure the number is <= 100
         while (number > 100) {
             System.out.print("Enter a number less than or equal to 100: ");
             number = input.nextInt();
         }
 
-        System.out.println("Numbers between 1 and 100 that divide " + number + ":");
+        System.out.println("The divisors of " + number + " are:");
 
-        // Loop to check numbers from 1 to 100
+        // Loop to find all divisors
         for (int i = 1; i <= 100; i++) {
-
-            // Checking if i is a divisor of the given number
-            if (number % i == 0) {
+            if (number % i == 0) { // Check if i divides the number
                 System.out.println(i);
-                // Printing the divisor
             }
         }
     }

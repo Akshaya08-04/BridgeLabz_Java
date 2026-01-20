@@ -1,25 +1,23 @@
-/*
- This program calculates the discount on a course fee
- and determines the final fee after applying the discount.
- It demonstrates the use of variables, percentage
- calculation, and output in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
+/**
+ * This program calculates the discount and final fee after applying a discount.
+ * It uses a fixed fee amount and a discount percentage to compute and display the results.
+ */
 public class FeeDiscount {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
+        final double FEE = 125000;             // Original fee
+        final double DISCOUNT_PERCENT = 0.10;  // 10% discount
 
-        double fee = 125000; // stores the original course fee
-        double discountPercent = 0.10; // stores discount percentage (10%)
+        // Calculate discount and final fee
+        double discountAmount = FEE * DISCOUNT_PERCENT;
+        double finalFee = FEE - discountAmount;
 
-        double discount = fee * discountPercent; // calculates the discount amount
-        double discountedFee = fee - discount; // calculates the final fee after discount
-
-        System.out.println(
-                "The discount amount is INR " + discount
-                        + " and final discounted fee is INR " + discountedFee + "."
-        ); // displays discount and final fee
+        // Display results in formatted output
+        System.out.printf(
+            "The discount amount is INR %.2f and the final discounted fee is INR %.2f.%n",
+            discountAmount, finalFee
+        );
     }
 }

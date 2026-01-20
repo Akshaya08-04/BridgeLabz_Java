@@ -1,30 +1,31 @@
-/*
- This program reverses a given string.
- It reads a string from the user and prints it
- in reverse order by looping from the last
- character to the first.
-*/
-package coreprogramming.Extras;
-// Package declaration
+package coreprogramming.extrasstring;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class ReverseString {
+
+    /*
+     * This program reverses a string entered by the user and prints it.
+     * Example:
+     *   Input: "hello"
+     *   Output: "olleh"
+     * The program demonstrates string manipulation, loops, and character access in Java.
+     */
+
     public static void main(String[] args) {
-
+        // Create Scanner object to read user input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt user to enter a string
         System.out.print("Enter a string: ");
         String text = input.nextLine();
-        // Reading the input string
 
-        // Loop starts from the last character and moves to the first
+        System.out.print("Reversed string: ");
+        // Loop through the string from the end to the beginning
         for (int i = text.length() - 1; i >= 0; i--) {
-
-            // Printing each character in reverse order
-            System.out.print(text.charAt(i));
+            System.out.print(text.charAt(i)); // Print each character in reverse order
         }
+
+        System.out.println(); // Print a newline for neat output
     }
 }

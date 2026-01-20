@@ -1,100 +1,75 @@
-/*
- This program performs two geometric calculations using coordinates:
- 1) Calculates the Euclidean distance between two points.
- 2) Finds the equation of the straight line passing through those two points.
- The line equation is displayed in slope–intercept form (y = mx + b),
- and vertical line cases are handled separately.
-*/
 package coreprogramming.javamethods.level3;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
+/*
+ * DistanceAndLine class
+ * ---------------------
+ * This class provides functionality to:
+ * 1. Calculate the Euclidean distance between two points (x1, y1) and (x2, y2).
+ * 2. Find the equation of the line passing through the two points.
+ * 
+ * The line equation is represented in slope-intercept form: y = mx + b.
+ * If the line is vertical, slope m is considered infinite, and b is NaN.
+ * 
+ * The main method reads two points from the user, calculates the distance,
+ * determines the line equation, and prints the results.
+ */
 public class DistanceAndLine {
 
-    // Method to calculate Euclidean distance between two points (x1, y1) and (x2, y2)
+    // Method to calculate Euclidean distance between two points
     public static double calculateDistance(double x1, double y1, double x2, double y2) {
-
-        // Applying the distance formula √[(x2−x1)² + (y2−y1)²]
+        // Distance formula: sqrt((x2 - x1)^2 + (y2 - y1)^2)
         double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-
-        // Returning the calculated distance
         return distance;
     }
 
-    // Method to calculate slope (m) and y-intercept (b) of the line joining two points
+    // Method to calculate the slope (m) and y-intercept (b) of the line
     public static double[] getLineEquation(double x1, double y1, double x2, double y2) {
+        double m; // slope
+        double b; // y-intercept
 
-        double m; // Variable to store slope
-        double b; // Variable to store y-intercept
-
-        // Checking for vertical line to avoid division by zero
-        if (x2 - x1 != 0) {
-
-            // Calculating slope using formula (y2 - y1) / (x2 - x1)
-            m = (y2 - y1) / (x2 - x1);
-
-            // Calculating y-intercept using equation y = mx + b
-            b = y1 - m * x1;
-        } else {
-
-            // Assigning infinite slope for vertical line
+        if (x2 - x1 != 0) { // Normal line (not vertical)
+            m = (y2 - y1) / (x2 - x1); // slope formula: (y2 - y1) / (x2 - x1)
+            b = y1 - m * x1;           // intercept formula: b = y1 - m*x1
+        } else { // Vertical line: slope is infinite
             m = Double.POSITIVE_INFINITY;
-
-            // Y-intercept is undefined for vertical lines
-            b = Double.NaN;
+            b = Double.NaN; // No y-intercept for vertical line
         }
 
-        // Returning slope and intercept as an array
-        return new double[]{m, b};
+        return new double[]{m, b}; // Return slope and intercept as an array
     }
 
+    // Main method to read user input and display distance and line equation
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in); // Scanner for user input
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
-
+        // Read coordinates of the first point
         System.out.print("Enter x1: ");
         double x1 = input.nextDouble();
-        // Reading x-coordinate of first point
-
         System.out.print("Enter y1: ");
         double y1 = input.nextDouble();
-        // Reading y-coordinate of first point
 
+        // Read coordinates of the second point
         System.out.print("Enter x2: ");
         double x2 = input.nextDouble();
-        // Reading x-coordinate of second point
-
         System.out.print("Enter y2: ");
         double y2 = input.nextDouble();
-        // Reading y-coordinate of second point
 
+        // Calculate and display the Euclidean distance
         double distance = calculateDistance(x1, y1, x2, y2);
-        // Calling method to calculate distance
+        System.out.printf("Euclidean distance between (%.2f, %.2f) and (%.2f, %.2f) = %.2f\n",
+                x1, y1, x2, y2, distance);
 
-        // Printing the Euclidean distance with formatted output
-        System.out.printf(
-                "Euclidean distance between (%.2f, %.2f) and (%.2f, %.2f) = %.2f\n",
-                x1, y1, x2, y2, distance
-        );
-
+        // Calculate line equation and extract slope and intercept
         double[] line = getLineEquation(x1, y1, x2, y2);
-        // Calling method to get slope and intercept
-
         double m = line[0];
-        // Extracting slope value
-
         double b = line[1];
-        // Extracting intercept value
 
-        // Checking if the line is vertical
+        // Print line equation, handle vertical lines separately
         if (Double.isInfinite(m)) {
-
-            // Printing equation for a vertical line
             System.out.printf("The line is vertical: x = %.2f\n", x1);
         } else {
-
-            // Printing line equation in slope-intercept form
             System.out.printf("Equation of the line: y = %.2fx + %.2f\n", m, b);
         }
     }

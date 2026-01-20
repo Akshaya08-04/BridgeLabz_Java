@@ -1,29 +1,31 @@
-/*
- This program calculates the profit and profit percentage
- based on the given cost price and selling price.
- It demonstrates basic arithmetic operations,
- percentage calculation, and output statements in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
+/*
+ * This program calculates the profit and profit percentage
+ * based on the cost price and selling price.
+ */
 public class Profit {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        double CP = 129; // stores the cost price
-        double SP = 191; // stores the selling price
+        // Cost Price
+        double CP = 129;
 
-        double profit = SP - CP; // calculates profit
-        double profitPercentage = (profit / CP) * 100; // calculates profit percentage
+        // Selling Price
+        double SP = 191;
 
-        System.out.println(
-                "The Cost price is INR " + CP + " and the Selling Price is INR " + SP + "."
-        ); // displays cost price and selling price
+        // Calculating profit
+        double profit = SP - CP;
 
-        System.out.println(
-                "The profit is INR " + profit
-                        + " and the Profit Percentage is: " + profitPercentage + "%."
-        ); // displays profit and profit percentage
+        // Calculating profit percentage
+        double profitPercentage = (profit / CP) * 100;
+
+        // Displaying cost price and selling price
+        System.out.println("The Cost price is INR " + CP +
+                " and the Selling Price is INR " + SP + ".");
+
+        // Displaying profit and profit percentage
+        System.out.println("The profit is INR " + profit +
+                " and the Profit Percentage is: " + profitPercentage + "%.");
     }
 }

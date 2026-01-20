@@ -1,63 +1,51 @@
-/*
- This program finds the longest word in a given sentence.
- It scans the sentence character by character, builds words using letters,
- and compares their lengths to determine the longest word.
-*/
-package coreprogramming.Extras;
+package coreprogramming.extrasstring;
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
 public class LongestWord {
-    // Class to find the longest word in a sentence
+
+    /*
+     * This program finds the longest word in a sentence entered by the user.
+     * A word is considered as a sequence of letters (ignoring spaces and punctuation).
+     * The program demonstrates string manipulation, loops, character checking, and comparison in Java.
+     * Example:
+     *   Input: "Java programming is fun"
+     *   Output: "programming"
+     */
 
     public static void main(String[] args) {
-        // Main method where execution starts
-
+        // Create Scanner object to read user input
         Scanner scanner = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt user to enter a sentence
         System.out.print("Enter a sentence: ");
-        // Prompting the user to enter a sentence
         String sentence = scanner.nextLine();
-        // Reading the complete sentence from the user
 
-        String longestWord = "";
-        // Variable to store the longest word found so far
+        String longestWord = "";   // To store the longest word found
+        String currentWord = "";   // To store the current word being processed
 
-        String currentWord = "";
-        // Variable to temporarily store the current word being formed
-
-        // Loop to traverse each character in the sentence
+        // Iterate through each character of the sentence
         for (int i = 0; i < sentence.length(); i++) {
-
             char ch = sentence.charAt(i);
-            // Extracting the character at index i
 
             if (Character.isLetter(ch)) {
-                // Checking if the character is an alphabet
+                // Append letter to current word
                 currentWord += ch;
-                // Appending the character to the current word
-            }
-            else {
-                // When a non-letter character is encountered
+            } else {
+                // If non-letter found, compare current word with longest word
                 if (currentWord.length() > longestWord.length()) {
-                    // Comparing current word length with longest word
                     longestWord = currentWord;
-                    // Updating longest word if current word is longer
                 }
-                currentWord = "";
-                // Resetting current word for the next word
+                currentWord = ""; // Reset current word
             }
         }
 
-        // Checking the last word in case the sentence ends with a letter
+        // Check last word in case sentence ends with a letter
         if (currentWord.length() > longestWord.length()) {
             longestWord = currentWord;
-            // Updating longest word if the last word is longest
         }
 
+        // Display the longest word
         System.out.println("Longest word: " + longestWord);
-        // Printing the longest word found
     }
 }

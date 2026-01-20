@@ -1,23 +1,25 @@
-/*
- This program converts temperature from Celsius to Fahrenheit
- using the formula: (C × 9/5) + 32
-*/
 package coreprogramming.practiceproblems.assistedproblems;
 
-import java.util.Scanner; // Importing Scanner class for user input
+import java.util.Scanner;
 
+/**
+ * TempConversion class
+ * --------------------
+ * This program converts a temperature from Celsius to Fahrenheit.
+ */
 public class TempConversion {
+
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object
+        // Prompt user for temperature in Celsius
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = input.nextDouble();
 
-        System.out.print("Enter temperature in Celsius: "); // Asking user for Celsius value
-        double celsius = input.nextDouble(); // Reading Celsius temperature
+        // Convert Celsius to Fahrenheit
+        double fahrenheit = (celsius * 9 / 5) + 32;
 
-        double fahrenheit = (celsius * 9 / 5) + 32; // Converting Celsius to Fahrenheit
-
-        System.out.println(
-                "The temperature in Fahrenheit is: " + fahrenheit + " degrees F"
-        ); // Displaying the converted temperature
+        // Display the result
+        System.out.println("The temperature in Fahrenheit is: " + fahrenheit + " degrees F");
     }
 }

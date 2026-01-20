@@ -1,38 +1,43 @@
 package coreprogramming.javamethods.level1;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class SumOfNaturalNumbers {
 
-    // Method to calculate the sum of first N natural numbers
+    /*
+     * This method calculates the sum of the first N natural numbers.
+     *
+     * Parameter:
+     * - N : a positive integer
+     *
+     * Returns:
+     * - sum of natural numbers from 1 to N
+     */
     public static int naturalSum(int N) {
 
         int sum = 0;
-        // Variable to store the sum
 
-        // Loop to add all natural numbers from 1 to N
+        // Loop from 1 to N and add each number
         for (int i = 1; i <= N; i++) {
             sum = sum + i;
         }
 
         return sum;
-        // Returning the calculated sum
     }
 
     public static void main(String[] args) {
 
+        // Create Scanner object to read input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Read the number from the user
         System.out.print("Enter number: ");
         int N = input.nextInt();
-        // Reading the number N
 
+        // Calculate the sum of natural numbers
         int sumNumber = naturalSum(N);
-        // Calling method to calculate sum of natural numbers
 
+        // Display the result
         System.out.println("The sum of " + N + " natural numbers is: " + sumNumber);
-        // Printing the result
     }
 }

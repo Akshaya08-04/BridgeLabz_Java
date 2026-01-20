@@ -1,48 +1,57 @@
-/*
- This program calculates how many chocolates each child will get
- and how many chocolates will remain after equal distribution.
- It uses a method to perform division and modulus operations
- and returns the result using an integer array.
-*/
-package coreprogramming.javamethods.level1; // Defines the package for this class
+package coreprogramming.javamethods.level1;
 
-import java.util.Scanner; // Imports Scanner class to take input from the user
+import java.util.Scanner;
 
-public class ChocolateAndChildren { // Class definition
+public class ChocolateAndChildren {
 
-    // Method to calculate chocolates per child and remaining chocolates
+    /*
+     * This method calculates:
+     * 1. How many chocolates each child gets
+     * 2. How many chocolates are left after equal distribution
+     *
+     * Parameters:
+     * - numberOfChocolates : total chocolates available
+     * - numberOfChildren   : total number of children
+     *
+     * Returns:
+     * - An integer array where:
+     *   index 0 -> chocolates each child gets
+     *   index 1 -> remaining chocolates
+     */
     public static int[] childrenAndChocolate(int numberOfChocolates, int numberOfChildren) {
 
+        // Chocolates each child gets
         int get = numberOfChocolates / numberOfChildren;
-        // Calculates chocolates each child receives using division
 
+        // Chocolates remaining after distribution
         int left = numberOfChocolates % numberOfChildren;
-        // Calculates remaining chocolates using modulus
 
+        // Return results as an array
         return new int[]{get, left};
-        // Returns the received and remaining chocolates as an array
     }
 
-    public static void main(String[] args) { // Main method starts execution
+    public static void main(String[] args) {
 
+        // Create Scanner object to take input from user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Take number of children
         System.out.print("Enter number of children: ");
         int numberOfChildren = input.nextInt();
-        // Reading the number of children
 
+        // Take number of chocolates
         System.out.print("Enter number of chocolate: ");
         int numberOfChocolates = input.nextInt();
-        // Reading the number of chocolates
 
+        // Call method and store result
         int[] outPut = childrenAndChocolate(numberOfChocolates, numberOfChildren);
-        // Calling method to calculate chocolate distribution
 
+        // Display result
         System.out.println(
-                "The number of chocolates received and remaining are: "
-                        + outPut[1] + " and " + outPut[0]
+                "Each child gets " + outPut[0] +
+                " chocolates and " + outPut[1] +
+                " chocolates are remaining."
         );
-        // Printing remaining chocolates first and chocolates received per child
     }
 }
+

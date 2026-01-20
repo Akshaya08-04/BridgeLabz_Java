@@ -1,70 +1,68 @@
-/*
- This program implements a simple Calculator using switch-case.
- It takes two numbers and an arithmetic operator from the user
- and performs the corresponding calculation.
-*/
 package coreprogramming.controlflowpractices.level3;
-// Package declaration for Level 3 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class Calculator {
-    // Main class definition
+
+    /*
+     * This program is a simple calculator that performs basic arithmetic operations:
+     * addition (+), subtraction (-), multiplication (*), and division (/).
+     * The user inputs two numbers and an operator, and the program computes 
+     * and displays the result. Invalid operations are handled using a default case.
+     * This program demonstrates user input, switch-case statements, and arithmetic operations in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where program execution starts
 
+        // Create a Scanner object to read user input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt the user to enter the first number
         System.out.print("Enter first number: ");
         float firstNumber = input.nextFloat();
-        // Reading the first number from the user
 
+        // Prompt the user to enter the second number
         System.out.print("Enter second number: ");
         float secondNumber = input.nextFloat();
-        // Reading the second number from the user
 
-        System.out.print("Enter operation (+, -, *, /): ");
+        // Prompt the user to enter the operation (+, -, *, /)
+        System.out.print("Enter operation: ");
         String op = input.next();
-        // Reading the arithmetic operation symbol
 
-        // switch statement to perform operation based on user input
+        // Use switch-case to perform the selected operation
         switch (op) {
-
             case "+":
+                // Perform addition
                 float add = firstNumber + secondNumber;
-                // Performing addition
                 System.out.println("Result: " + add);
                 break;
 
             case "-":
+                // Perform subtraction
                 float sub = firstNumber - secondNumber;
-                // Performing subtraction
                 System.out.println("Result: " + sub);
                 break;
 
             case "*":
+                // Perform multiplication
                 float multiplication = firstNumber * secondNumber;
-                // Performing multiplication
                 System.out.println("Result: " + multiplication);
                 break;
 
             case "/":
-                // Checking for division by zero
-                if (secondNumber == 0) {
-                    System.out.println("Error: Division by zero is not allowed");
-                } else {
+                // Perform division
+                if (secondNumber != 0) {
                     float div = firstNumber / secondNumber;
-                    // Performing division
                     System.out.println("Result: " + div);
+                } else {
+                    // Handle division by zero
+                    System.out.println("Error: Division by zero is not allowed.");
                 }
                 break;
 
             default:
-                System.out.println("Invalid operation");
-                // Executed when an unsupported operator is entered
+                // Handle invalid operation input
+                System.out.println("Invalid operation. Please use +, -, *, or /.");
         }
     }
 }

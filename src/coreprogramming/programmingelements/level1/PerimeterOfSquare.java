@@ -1,31 +1,25 @@
-/*
- This program calculates the length of a side of a square
- using the given perimeter.
- It takes the perimeter as input from the user,
- applies the formula side = perimeter / 4,
- and displays the result.
- The program demonstrates user input, arithmetic
- calculation, and output in Java.
-*/
-
 package coreprogramming.programmingelements.level1;
 
-import java.util.Scanner; // imports Scanner class to read input from the user
+import java.util.Scanner;
 
+/*
+ * This program calculates the length of one side of a square
+ * using the given perimeter.
+ */
 public class PerimeterOfSquare {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in); // creates Scanner object for taking input
+        // Taking perimeter input from the user
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the perimeter of square in cm: ");
+        double perimeter = input.nextDouble();
 
-        System.out.print("Enter the perimeter of square in cm: "); // prompts user to enter perimeter
-        double perimeter = input.nextDouble(); // reads the perimeter value
+        // Calculating the side length of the square
+        double side = perimeter / 4;
 
-        double side = perimeter / 4; // calculates the length of one side of the square
-
-        System.out.println(
-                "The length of the side is " + side + " cm "
-                        + "whose perimeter is " + perimeter + " cm."
-        ); // displays the calculated side length
+        // Displaying the result
+        System.out.println("The length of the size is " + side +
+                " cm whose perimeter is " + perimeter + " cm.");
     }
 }

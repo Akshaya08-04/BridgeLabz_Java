@@ -1,25 +1,21 @@
 /*
- This program calculates the perimeter of a rectangle.
- It takes the length and width as input from the user
- and applies the formula: Perimeter = 2 × (length + width).
+This program calculates the perimeter of a rectangle.
+It asks the user to enter the length and width in cm,
+computes the perimeter as 2*(length + width), and prints the result.
 */
+
 package coreprogramming.practiceproblems.selfproblem;
 
-import java.util.Scanner; // Importing Scanner class to take input from the user
+import java.util.Scanner; 
 
-public class PerimeterOfRectangle {
-    public static void main(String[] args) {
-
-        Scanner input = new Scanner(System.in); // Creating Scanner object for user input
-
-        System.out.print("Enter length of the rectangle in cm: "); // Prompting user to enter length
-        double length = input.nextDouble(); // Reading length of the rectangle
-
-        System.out.print("Enter width of the rectangle in cm: "); // Prompting user to enter width
-        double width = input.nextDouble(); // Reading width of the rectangle
-
-        double perimeter = 2 * (length + width); // Calculating perimeter using formula
-
-        System.out.println("Perimeter of the rectangle is: " + perimeter + " cm."); // Displaying the result
+public class PerimeterOfRectangle { 
+    public static void main(String[] args) { 
+        Scanner input = new Scanner(System.in); // Create Scanner object
+        System.out.print("Enter length of the rectangle in cm: "); // Prompt for length
+        double length = input.nextDouble(); // Read length as double
+        System.out.print("Enter width of the rectangle in cm: "); // Prompt for width
+        double width = input.nextDouble(); // Read width as double
+        double perimeter = 2 * (length + width); // Calculate perimeter
+        System.out.println("Perimeter of the rectangle is: " + perimeter + " cm."); // Display result
     }
 }

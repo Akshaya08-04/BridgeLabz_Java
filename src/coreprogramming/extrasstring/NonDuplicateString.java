@@ -1,68 +1,56 @@
-/*
- This program removes duplicate characters from a given string.
- It scans the string character by character and builds a new string
- containing only the first occurrence of each character.
-*/
-package coreprogramming.Extras;
+package coreprogramming.extrasstring;
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
 public class NonDuplicateString {
-    // Class to handle removal of duplicate characters from a string
+
+    /*
+     * This program removes duplicate characters from a string entered by the user.
+     * Only the first occurrence of each character is kept, maintaining the original order.
+     * Example:
+     *   Input: "programming"
+     *   Output: "progamin"
+     * The program demonstrates string manipulation, loops, and conditional checking in Java.
+     */
 
     // Method to remove duplicate characters from a string
     public static String removeDuplicates(String text) {
+        String result = ""; // Stores the string without duplicates
 
-        String result = "";
-        // Variable to store the final string without duplicate characters
-
-        // Loop through each character of the input string
+        // Loop through each character in the input string
         for (int i = 0; i < text.length(); i++) {
-
             char current = text.charAt(i);
-            // Extracting the current character from the string
+            boolean found = false; // Flag to check if character already exists in result
 
-            boolean found = false;
-            // Flag to check whether the character already exists in result
-
-            // Loop through the result string to check for duplicates
+            // Check if current character is already in result
             for (int j = 0; j < result.length(); j++) {
                 if (result.charAt(j) == current) {
-                    // Checking if current character already exists
-                    found = true;
-                    // Marking character as found
+                    found = true; // Character already exists
                     break;
-                    // Exiting loop once duplicate is found
                 }
             }
 
-            // If the character is not found in result
+            // If character not found in result, append it
             if (!found) {
                 result += current;
-                // Adding the character to the result string
             }
         }
 
-        return result;
-        // Returning the string without duplicate characters
+        return result; // Return the string with duplicates removed
     }
 
     public static void main(String[] args) {
-        // Main method where program execution starts
-
+        // Create Scanner object to read user input
         Scanner scan = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt user to enter a string
         System.out.print("Enter a string: ");
-        // Prompting the user to enter a string
         String text = scan.nextLine();
-        // Reading the input string from the user
 
+        // Call method to remove duplicates
         String output = removeDuplicates(text);
-        // Calling method to remove duplicate characters
 
-        System.out.println("String after removing duplicates: " + output);
-        // Printing the final string without duplicates
+        // Display the result
+        System.out.println("String after removing duplicates: " + output);;
     }
 }

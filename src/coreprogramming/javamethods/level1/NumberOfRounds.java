@@ -1,53 +1,55 @@
-/*
- This program calculates the number of rounds required
- to complete a total distance of 5 km on a triangular track.
- The perimeter of the triangle is calculated using its three sides,
- and the number of rounds is derived from that.
-*/
 package coreprogramming.javamethods.level1;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class NumberOfRounds {
 
-    // Method to calculate number of rounds needed to complete 5 km
+    /*
+     * This method calculates how many rounds are needed
+     * to complete a total distance of 5 km.
+     *
+     * Parameters:
+     * - side1, side2, side3 : lengths of the three sides of the triangular track
+     *
+     * Returns:
+     * - number of rounds required to complete 5 km
+     */
     public static float rounds(float side1, float side2, float side3) {
 
+        // Calculate the perimeter of the triangular track
         float perimeter = side1 + side2 + side3;
-        // Calculating the perimeter of the triangular track
 
+        // Total distance to be covered (5 km = 5000 meters assumed here)
+        // If sides are in km, then 5 represents 5 km
         float rounds = 5 / perimeter;
-        // Calculating number of rounds to complete 5 km
 
+        // Return calculated number of rounds
         return rounds;
-        // Returning the calculated number of rounds
     }
 
     public static void main(String[] args) {
 
+        // Create Scanner object to read user input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Read first side length
         System.out.print("Enter first side: ");
         float side1 = input.nextFloat();
-        // Reading first side length
 
+        // Read second side length
         System.out.print("Enter second side: ");
         float side2 = input.nextFloat();
-        // Reading second side length
 
+        // Read third side length
         System.out.print("Enter third side: ");
         float side3 = input.nextFloat();
-        // Reading third side length
 
+        // Call method to calculate number of rounds
         float runningRounds = rounds(side1, side2, side3);
-        // Calling method to calculate required rounds
 
+        // Display the result
         System.out.println(
-                "The number of rounds needed to complete 5 km is: "
-                        + runningRounds
+                "The number of rounds needed to complete a 5 km run is: " + runningRounds
         );
-        // Printing the final result
     }
 }

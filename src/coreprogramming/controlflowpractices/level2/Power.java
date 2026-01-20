@@ -1,45 +1,44 @@
-/*
- This program calculates the power of a given number.
- It takes a base number and an exponent from the user
- and computes the result using a loop.
-*/
 package coreprogramming.controlflowpractices.level2;
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class Power {
+
+    /*
+     * This program calculates the power of a number using a loop.
+     * Steps:
+     * 1. Take user input for a base number and exponent (power).
+     * 2. Validate that the base number is positive.
+     * 3. Use a for loop to multiply the base number by itself 'power' times.
+     * 4. Display the final result.
+     */
+
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-        // Creating Scanner object to read user input
+        Scanner scan = new Scanner(System.in); // Scanner for user input
 
+        // Get base number
         System.out.print("Enter a number: ");
         int number = scan.nextInt();
-        // Reading the base number
 
+        // Get exponent
         System.out.print("Enter a power: ");
         int power = scan.nextInt();
-        // Reading the exponent value
 
-        // Loop to ensure the base number is positive
+        // Validate base number to ensure it's positive
         while (number < 0) {
             System.out.print("Enter a positive number: ");
             number = scan.nextInt();
-            // Asking again until a valid positive number is entered
         }
 
         int result = 1;
-        // Variable to store the final power result
-        // Initialized to 1 because any number raised to power 0 is 1
 
-        // Loop to calculate number raised to the given power
+        // Loop to calculate power
         for (int i = 1; i <= power; i++) {
-            result = number * result;
-            // Multiplying the base number repeatedly
+            result = result * number;
         }
 
-        System.out.println(result);
-        // Displaying the calculated power result
+        // Display result
+        System.out.println(number + " raised to the power " + power + " is: " + result);
     }
 }

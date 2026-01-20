@@ -1,32 +1,30 @@
-/*
- This program calculates the total income of a person
- by adding salary and bonus entered by the user.
- It demonstrates user input using Scanner,
- basic addition, and displaying the result in Java.
-*/
-
 package coreprogramming.programmingelements.level2;
 
-import java.util.Scanner; // imports Scanner class to take input from the user
+import java.util.Scanner;
 
+/*
+ * This program calculates the total income
+ * by adding salary and bonus.
+ */
 public class TotalIncome {
 
-    public static void main(String[] args) { // main method where program execution starts
+    public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in); // creates Scanner object for reading user input
+        // Taking salary input from the user
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter salary: ");
+        float salary = input.nextFloat();
 
-        System.out.print("Enter salary: "); // prompts user to enter salary
-        float salary = input.nextFloat(); // reads salary amount
+        // Taking bonus input from the user
+        System.out.print("Enter bonus: ");
+        float bonus = input.nextFloat();
 
-        System.out.print("Enter bonus: "); // prompts user to enter bonus
-        float bonus = input.nextFloat(); // reads bonus amount
+        // Calculating total income
+        float income = salary + bonus;
 
-        float income = salary + bonus; // calculates total income
-
-        System.out.println(
-                "The salary is INR " + salary
-                        + " and bonus is INR " + bonus + ". "
-                        + "Hence the total income is INR " + income + "."
-        ); // displays salary, bonus, and total income
+        // Displaying salary, bonus, and total income
+        System.out.println("The salary is INR " + salary +
+                " and bonus is INR " + bonus +
+                ". Hence the total income is INR " + income + ".");
     }
 }

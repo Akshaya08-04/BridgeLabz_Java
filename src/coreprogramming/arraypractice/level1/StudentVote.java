@@ -1,42 +1,74 @@
-/*
- This program checks the voting eligibility of students.
- It takes the ages of 10 students as input, displays the ages,
- and then checks whether each student can vote based on age.
-*/
-package coreprogramming.arraypractice.level1; // Defines the package for array practice programs (Level 1)
+/**
+ * Program Name: StudentVote
+ *
+ * Description:
+ * This program accepts the ages of 10 students and determines
+ * whether each student is eligible to vote or not.
+ *
+ * Eligibility Rule:
+ * - Age must be 18 or above to vote
+ *
+ * The program also checks for invalid input (negative ages)
+ * and displays appropriate messages.
+ *
+ * Concepts Used:
+ * - Arrays
+ * - Loops
+ * - Conditional statements
+ * - User input using Scanner
+ */
 
-import java.util.Scanner; // Scanner is used to take input from the user
+package coreprogramming.ArrayPractice.Level1;
 
-public class StudentVote { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read user input
+public class StudentVote {
 
-        int[] age = new int[10]; // Declaring an integer array to store ages of 10 students
+    public static void main(String[] args) {
 
-        System.out.print("Enter age of 10 students: "); // Prompts user to enter ages
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
 
-        // Loop to read ages of 10 students
-        for (int i = 0; i < 10; i++) { // Iterates 10 times
-            age[i] = input.nextInt(); // Stores each age in the array
+        // Declaring an array to store the ages of 10 students
+        int[] age = new int[10];
+
+        // Prompting the user to enter ages
+        System.out.print("Enter age of 10 students: ");
+
+        // Loop to read age values into the array
+        for (int i = 0; i < 10; i++) {
+
+            // Storing each age entered by the user
+            age[i] = input.nextInt();
         }
 
-        // Loop to display the entered ages
-        for (int i = 0; i < 10; i++) { // Iterates through the array
-            System.out.println(age[i] + " "); // Prints each student's age
+        // Displaying all entered ages
+        for (int i = 0; i < 10; i++) {
+
+            // Printing each student's age
+            System.out.println(age[i] + " ");
         }
 
-        // Loop to check voting eligibility for each student
-        for (int i = 0; i < 10; i++) { // Iterates through the age array
+        // Loop to check voting eligibility
+        for (int i = 0; i < 10; i++) {
 
-            if (age[i] < 0) { // Checks if age is negative
-                System.out.println("The number entered is negative."); // Prints error message
+            // Checking if the entered age is negative
+            if (age[i] < 0) {
+
+                // Displaying error message for negative age
+                System.out.println("The number entered is negative.");
             }
-            else if (age[i] >= 18) { // Checks if age is 18 or above
-                System.out.println("The student with age " + age[i] + " can vote."); // Eligible to vote
+            // Checking if the student is eligible to vote (age >= 18)
+            else if (age[i] >= 18) {
+
+                // Displaying eligibility message
+                System.out.println("The student with age " + age[i] + " can vote.");
             }
-            else { // Executes if age is below 18
-                System.out.println("The student with age " + age[i] + " cannot vote."); // Not eligible to vote
+            // Student is not eligible to vote (age < 18)
+            else {
+
+                // Displaying non-eligibility message
+                System.out.println("The student with age " + age[i] + " cannot vote.");
             }
         }
     }

@@ -1,38 +1,33 @@
-/*
- This program acts as a simple calculator.
- It takes two numbers from the user and
- performs basic arithmetic operations:
- addition, subtraction, multiplication,
- and division.
- The program demonstrates user input,
- arithmetic operators, and formatted output.
-*/
-
 package coreprogramming.programmingelements.level1;
 
-import java.util.Scanner; // imports Scanner class for taking user input
+import java.util.Scanner;
 
+/**
+ * This program performs basic arithmetic operations (addition, subtraction, multiplication, division)
+ * on two numbers entered by the user and displays the results.
+ */
 public class Calculator {
 
-    public static void main(String[] args) { // main method where execution starts
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Scanner for user input
 
-        Scanner input = new Scanner(System.in); // creates Scanner object to read input
+        // Read two numbers from the user
+        System.out.print("Enter the first number: ");
+        float firstNumber = scanner.nextFloat();
 
-        System.out.print("Enter first number: "); // prompts user for first number
-        float num1 = input.nextFloat(); // reads first number
+        System.out.print("Enter the second number: ");
+        float secondNumber = scanner.nextFloat();
 
-        System.out.print("Enter second number: "); // prompts user for second number
-        float num2 = input.nextFloat(); // reads second number
+        // Perform arithmetic operations
+        float addition = firstNumber + secondNumber;
+        float subtraction = firstNumber - secondNumber;
+        float multiplication = firstNumber * secondNumber;
+        float division = firstNumber / secondNumber;
 
-        float addition = num1 + num2; // performs addition
-        float subtraction = num1 - num2; // performs subtraction
-        float multiplication = num1 * num2; // performs multiplication
-        float division = num1 / num2; // performs division
-
-        System.out.println(
-                "The addition, subtraction, multiplication and division values of 2 numbers "
-                        + num1 + " and " + num2 + " is "
-                        + addition + ", " + subtraction + ", " + multiplication + " and " + division
-        ); // displays all calculated results
+        // Display results in formatted way
+        System.out.printf(
+            "Results for %.2f and %.2f:%nAddition: %.2f%nSubtraction: %.2f%nMultiplication: %.2f%nDivision: %.2f%n",
+            firstNumber, secondNumber, addition, subtraction, multiplication, division
+        );
     }
 }

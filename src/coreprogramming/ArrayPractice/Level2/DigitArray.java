@@ -1,71 +1,93 @@
-/*
- This program extracts all digits from a given number,
- stores them in an array with dynamic resizing,
- and then finds the largest and second largest digits.
-*/
-package coreprogramming.arraypractice.level2; // Defines the package for Level 2 array practice programs
+/**
+ * Program Name: DigitArray
+ *
+ * Description:
+ * This program extracts all digits from a given number and stores them
+ * in an array. It then finds the largest and second largest digits
+ * from the number.
+ *
+ * Steps:
+ * 1. Take a number as input.
+ * 2. Extract digits using modulus and division, store them in a dynamic array.
+ * 3. Resize the array if more than initial capacity is needed.
+ * 4. Loop through the digits to find the largest and second largest.
+ * 5. Display the largest and second largest digits.
+ *
+ * Concepts Used:
+ * - Arrays (dynamic resizing)
+ * - Loops
+ * - Conditional statements
+ * - Modulus and division for digit extraction
+ * - Input using Scanner
+ */
+package coreprogramming.arraypractice.level2;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
-public class DigitArray { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+public class DigitArray {
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read input
+    public static void main(String[] args) {
 
-        System.out.println("Enter a number: "); // Prompts user to enter a number
-        int number = input.nextInt(); // Reads the number from the user
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
 
-        int maxDigit = 10; // Initial size of the digits array
+        // Prompting user to enter a number
+        System.out.println("Enter a number: ");
+        int number = input.nextInt();
 
-        int[] digits = new int[maxDigit]; // Array to store digits of the number
+        // Initial maximum size of the digits array
+        int maxDigit = 10;
+        int[] digits = new int[maxDigit];
 
-        int index = 0; // Keeps track of how many digits are stored
+        // Index to keep track of number of digits stored
+        int index = 0;
 
         // Loop to extract digits from the number
-        while (number != 0) { // Continues until all digits are processed
+        while (number != 0) {
 
-            // If the array is full, increase its size dynamically
-            if (index == maxDigit) { // Checks if array capacity is reached
+            // Check if the array is full, resize if needed
+            if (index == maxDigit) {
+                maxDigit += 10; // Increase size by 10
+                int[] temp = new int[maxDigit];
 
-                maxDigit += 10; // Increases array size by 10
-
-                int[] temp = new int[maxDigit]; // Creates a new larger array
-
-                // Copies existing digits into the new array
-                for (int i = 0; i < digits.length; i++) { // Iterates through old array
-                    temp[i] = digits[i]; // Copies each element
+                // Copy old digits to the new array
+                for (int i = 0; i < digits.length; i++) {
+                    temp[i] = digits[i];
                 }
 
-                digits = temp; // Assigns resized array back to digits
+                // Assign the resized array to digits
+                digits = temp;
             }
 
-            digits[index] = number % 10; // Extracts the last digit and stores it
+            // Extract the last digit and store in array
+            digits[index] = number % 10;
 
-            number = number / 10; // Removes the last digit from the number
+            // Remove the last digit from the number
+            number = number / 10;
 
-            index++; // Moves to the next index position
+            // Increment index
+            index++;
         }
 
-        int largest = 0; // Variable to store the largest digit
+        // Variables to store largest and second largest digits
+        int largest = 0;
+        int secondLargest = 0;
 
-        int secondLargest = 0; // Variable to store the second largest digit
-
-        // Loop to find the largest and second largest digits
-        for (int i = 0; i < index; i++) { // Iterates through stored digits
-
-            if (digits[i] > largest) { // Checks if current digit is greater than largest
-                secondLargest = largest; // Updates second largest
-                largest = digits[i]; // Updates largest digit
-            }
-            else if (digits[i] > secondLargest && digits[i] != largest) {
-                // Checks if digit is between largest and second largest
-                secondLargest = digits[i]; // Updates second largest digit
+        // Loop through all digits to find largest and second largest
+        for (int i = 0; i < index; i++) {
+            if (digits[i] > largest) {
+                secondLargest = largest; // Update second largest
+                largest = digits[i];     // Update largest
+            } else if (digits[i] > secondLargest && digits[i] != largest) {
+                secondLargest = digits[i]; // Update second largest if unique
             }
         }
 
-        System.out.println("Largest digit: " + largest); // Displays the largest digit
-        System.out.println("Second largest digit: " + secondLargest); // Displays second largest digit
+        // Display the largest and second largest digits
+        System.out.println("Largest digit: " + largest);
+        System.out.println("Second largest digit: " + secondLargest);
 
-        input.close(); // Closing Scanner to release resources
+        // Close the scanner object
+        input.close();
     }
 }

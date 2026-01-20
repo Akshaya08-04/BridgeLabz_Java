@@ -1,59 +1,100 @@
-/*
- This program separates odd and even numbers up to a given natural number.
- It validates the input, stores odd and even numbers in separate arrays,
- and then displays both lists.
-*/
-package coreprogramming.arraypractice.level1; // Defines the package for array practice programs (Level 1)
+/**
+ * Program Name: OddEvenArray
+ *
+ * Description:
+ * This program accepts a natural number from the user and separates
+ * all numbers from 1 to the entered number into two arrays:
+ * one for odd numbers and one for even numbers.
+ *
+ * The program validates the input, stores values accordingly,
+ * and then displays the odd and even numbers separately.
+ *
+ * Concepts Used:
+ * - Arrays
+ * - for loop
+ * - Conditional statements
+ * - User input using Scanner
+ */
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+package coreprogramming.arraypractice.level1;
 
-public class OddEvenArray { // Main class definition
-    public static void main(String[] args) { // Main method where execution starts
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read input
+public class OddEvenArray {
 
-        System.out.print("Enter a natural number: "); // Prompts user to enter a natural number
-        int number = input.nextInt(); // Reads a natural number from the user
+    public static void main(String[] args) {
 
-        // Checking if the entered number is a valid natural number
-        if (number <= 0) { // Condition to validate natural number
-            System.out.println("Error: Please enter a natural number."); // Displays error message
-            return; // Exits the program if input is invalid
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
+
+        // Prompting the user to enter a natural number
+        System.out.print("Enter a natural number: ");
+
+        // Reading the number entered by the user
+        int number = input.nextInt();
+
+        // Validating the input to ensure it is a natural number
+        if (number <= 0) {
+
+            // Displaying error message for invalid input
+            System.out.println("Error: Please enter a natural number.");
+
+            // Terminating the program execution
+            return;
         }
 
-        int[] even = new int[number / 2 + 1]; // Array to store even numbers up to the given number
+        // Declaring array to store even numbers
+        int[] even = new int[number / 2 + 1];
 
-        int[] odd = new int[number / 2 + 1]; // Array to store odd numbers up to the given number
+        // Declaring array to store odd numbers
+        int[] odd = new int[number / 2 + 1];
 
-        int evenIndex = 0; // Keeps track of the current index for even array
+        // Index to track the position in the even array
+        int evenIndex = 0;
 
-        int oddIndex = 0; // Keeps track of the current index for odd array
+        // Index to track the position in the odd array
+        int oddIndex = 0;
 
-        // Loop from 1 to the given number
-        for (int i = 1; i <= number; i++) { // Iterates through all numbers up to input
+        // Loop to separate numbers into even and odd arrays
+        for (int i = 1; i <= number; i++) {
 
-            // Checking whether the number is even or odd
-            if (i % 2 == 0) { // Condition to check even number
-                even[evenIndex] = i; // Stores even number in even array
-                evenIndex++; // Moves to the next index in even array
-            } else { // Executes if number is odd
-                odd[oddIndex] = i; // Stores odd number in odd array
-                oddIndex++; // Moves to the next index in odd array
+            // Checking if the current number is even
+            if (i % 2 == 0) {
+
+                // Storing even number in the even array
+                even[evenIndex] = i;
+
+                // Incrementing even array index
+                evenIndex++;
+            }
+            else {
+
+                // Storing odd number in the odd array
+                odd[oddIndex] = i;
+
+                // Incrementing odd array index
+                oddIndex++;
             }
         }
 
-        System.out.println("\nOdd numbers:"); // Prints heading for odd numbers
+        // Displaying all odd numbers
+        System.out.println("\nOdd numbers:");
 
-        // Loop to display all stored odd numbers
-        for (int i = 0; i < oddIndex; i++) { // Iterates through odd array
-            System.out.print(odd[i] + " "); // Prints each odd number
+        // Loop to print odd numbers from the array
+        for (int i = 0; i < oddIndex; i++) {
+
+            // Printing odd number
+            System.out.print(odd[i] + " ");
         }
 
-        System.out.println("\n\nEven numbers:"); // Prints heading for even numbers
+        // Displaying all even numbers
+        System.out.println("\n\nEven numbers:");
 
-        // Loop to display all stored even numbers
-        for (int i = 0; i < evenIndex; i++) { // Iterates through even array
-            System.out.print(even[i] + " "); // Prints each even number
+        // Loop to print even numbers from the array
+        for (int i = 0; i < evenIndex; i++) {
+
+            // Printing even number
+            System.out.print(even[i] + " ");
         }
     }
 }

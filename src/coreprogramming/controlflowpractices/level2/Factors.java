@@ -1,49 +1,49 @@
-/*
- This program finds and prints all the factors of a given number.
- It validates the input to ensure the number is positive.
- The logic checks every number from 1 to N and prints those
- which divide N exactly.
-*/
 package coreprogramming.controlflowpractices.level2;
-// Package declaration for Level 2 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class Factors {
 
-    // Method to find and print all factors of a number
+    /*
+     * This program finds all the factors of a given positive integer.
+     * It prompts the user for input if a negative number is entered.
+     * Each factor is printed on a new line.
+     */
+
+    // Method to find and print factors of a number
     public static void findingFactors(int N) {
 
-        // Loop to ensure the number entered is positive
+        // Loop to ensure N is positive
         while (N < 0) {
+
+            // Asking user for a positive integer
             System.out.print("Enter a positive integer: ");
             N = new Scanner(System.in).nextInt();
-            // Taking new input if the number is negative
         }
 
-        // Loop to check each number from 1 to N
+        // Loop from 1 to N to check for factors
         for (int i = 1; i <= N; i++) {
 
-            // Checking if i is a factor of N
+            // If i divides N completely, it is a factor
             if (N % i == 0) {
-                System.out.println(i);
-                // Printing the factor
+                System.out.println(i); // Print the factor
             }
         }
     }
 
     public static void main(String[] args) {
 
+        // Creating a Scanner object for user input
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
-        System.out.print("Enter a number: ");
         // Prompting user to enter a number
+        System.out.print("Enter a number: ");
         int N = input.nextInt();
-        // Reading the number from the user
 
+        // Calling the method to find and display factors
         findingFactors(N);
-        // Calling the method to find and print factors of the number
+
+        // Closing the Scanner
+        input.close();
     }
 }

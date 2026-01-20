@@ -1,35 +1,48 @@
-/*
- This program checks whether a person is eligible to vote.
- It validates the entered age and then determines eligibility
- based on the voting age criteria.
-*/
-package coreprogramming.controlflowpractices.level1; // Package for Level 1 control flow programs
+/**
+ * Program Name: EligibilityCheck
+ *
+ * Description:
+ * This program checks if a person is eligible to vote based on their age.
+ * The user is prompted to enter their age, and input validation ensures the age is positive.
+ * The program then determines if the person can vote (age >= 18) or not.
+ *
+ * Steps:
+ * 1. Input age from the user.
+ * 2. Validate that age is greater than 0 using a while loop.
+ * 3. Use if-else to check if age >= 18.
+ * 4. Display eligibility message.
+ *
+ * Concepts Used:
+ * - Loops (while) for input validation
+ * - Conditional statements (if-else)
+ * - Scanner for user input
+ */
+package coreprogramming.controlflowpractices.level1;
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+import java.util.Scanner;
 
-public class EligibilityCheck { // Main class
-    public static void main(String[] args) { // Entry point of the program
+public class EligibilityCheck {
 
+    public static void main(String[] args) {
+
+        // Creating Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Getting age input from user
         System.out.print("Enter age: ");
         int age = input.nextInt();
-        // Reading the age of the person
 
-        // Loop to ensure the entered age is valid (greater than 0)
+        // Validate age: must be greater than 0
         while (age <= 0) {
             System.out.print("Please enter a valid age: ");
             age = input.nextInt();
-            // Asking again until a valid age is entered
         }
 
-        // Checking voting eligibility based on age
+        // Check voting eligibility
         if (age >= 18) {
-            System.out.println("The person's age is " + age + " and can vote.");
-        }
-        else {
-            System.out.println("The person's age is " + age + " and cannot vote.");
+            System.out.print("The person's age is " + age + " and can vote.");
+        } else {
+            System.out.print("The person's age is " + age + " and cannot vote.");
         }
     }
 }

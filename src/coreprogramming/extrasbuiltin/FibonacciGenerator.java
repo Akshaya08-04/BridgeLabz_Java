@@ -1,74 +1,56 @@
-/*
- This program generates and prints the Fibonacci sequence
- for a given number of terms entered by the user.
- It demonstrates:
- - User input using Scanner
- - Method calls
- - Loop-based Fibonacci logic
- - Basic input validation
-*/
-package coreprogramming.extrasbuiltin;
-// Package declaration for extra built-in concept programs
+package coreprogramming.extrasbuiltIn;
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
 public class FibonacciGenerator {
-    // Class to generate Fibonacci sequence
+
+    /*
+     * This program generates the Fibonacci sequence up to a user-specified number of terms.
+     * The Fibonacci sequence is a series where each number is the sum of the two preceding ones:
+     * Example: 0, 1, 1, 2, 3, 5, 8, ...
+     * The program demonstrates user input, loops, and method usage in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where program execution starts
-
+        // Create Scanner object to read input from the user
         Scanner scanner = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt the user for the number of terms in the Fibonacci sequence
         System.out.print("Enter the number of terms for the Fibonacci sequence: ");
         int terms = scanner.nextInt();
-        // Reading number of Fibonacci terms to generate
 
-        // Checking whether the entered number of terms is valid
+        // Validate input: number of terms must be positive
         if (terms <= 0) {
             System.out.println("Please enter a positive number.");
-            // Fibonacci sequence requires a positive number of terms
-        }
-        else {
+        } else {
+            // Print the Fibonacci sequence up to the specified number of terms
             System.out.println("Fibonacci sequence up to " + terms + " terms:");
-            // Displaying header message
-
             printFibonacci(terms);
-            // Calling method to print Fibonacci sequence
         }
 
+        // Close the Scanner object to free resources
         scanner.close();
-        // Closing Scanner to release system resources
     }
 
-    // Method to generate and print Fibonacci sequence
+    /**
+     * Prints the Fibonacci sequence up to n terms.
+     *
+     * @param n The number of terms to print
+     */
     public static void printFibonacci(int n) {
-
+        // Initialize the first two terms of the Fibonacci sequence
         int first = 0;
-        // Initializing first Fibonacci number
-
         int second = 1;
-        // Initializing second Fibonacci number
 
-        // Loop to generate Fibonacci numbers up to n terms
+        // Generate and print the sequence iteratively
         for (int i = 1; i <= n; i++) {
-
             System.out.print(first + " ");
-            // Printing the current Fibonacci number
-
-            int next = first + second;
-            // Calculating the next Fibonacci number
-
-            first = second;
-            // Shifting second number to first position
-
-            second = next;
-            // Assigning next number to second position
+            int next = first + second; // Calculate next term
+            first = second;            // Update first term
+            second = next;             // Update second term
         }
 
+        // Print a new line at the end
         System.out.println();
-        // Printing a new line after the sequence output
     }
 }

@@ -1,55 +1,46 @@
-/*
- This program finds and prints all the factors of a given number
- using a while loop.
- It validates the input to ensure the number is positive
- and then checks every number from 1 to N to find factors.
-*/
 package coreprogramming.controlflowpractices.level2;
-// Package declaration for Level 2 control flow practice programs
 
 import java.util.Scanner;
-// Scanner class is used to take input from the user
 
 public class FactorsWhile {
-    // Main class definition
 
-    // Method to find and print all factors of a number using while loop
+    /*
+     * This program finds all the factors of a given positive integer using a while loop.
+     * If the user enters a negative number, it prompts again until a positive integer is provided.
+     * Each factor is printed on a separate line.
+     */
+
+    // Method to find and print factors using a while loop
     public static void findingFactors(int N) {
 
-        // Loop to ensure the number entered is positive
+        // Loop to ensure only positive numbers are processed
         while (N < 0) {
             System.out.print("Enter a positive integer: ");
-            N = new Scanner(System.in).nextInt();
-            // Taking new input if the number is negative
+            N = new Scanner(System.in).nextInt(); // Prompt user for positive number
         }
 
-        int count = 0;
-        // Counter variable to check numbers from 1 to N
+        int count = 0; // Counter to iterate through potential factors
 
-        // Loop to check each number from 1 to N
+        // Loop from 1 to N to check for factors
         while (count < N) {
-            count++;
-            // Incrementing count to move to the next number
+            count++; // Increment counter
 
-            // Checking if the current count is a factor of N
+            // If count divides N completely, it is a factor
             if (N % count == 0) {
-                System.out.println(count);
-                // Printing the factor
+                System.out.println(count); // Print the factor
             }
         }
     }
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
+        Scanner input = new Scanner(System.in); // Scanner object for user input
 
-        System.out.print("Enter a number: ");
         // Prompting user to enter a number
+        System.out.print("Enter a number: ");
         int N = input.nextInt();
-        // Reading the number from the user
 
+        // Calling the method to find and display factors
         findingFactors(N);
-        // Calling the method to find and print factors
     }
 }

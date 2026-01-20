@@ -1,64 +1,48 @@
-/*
- This program checks the voting eligibility of students.
- It uses a non-static method to determine whether each student
- can vote based on their age and processes ages of 10 students
- using an array and loops.
-*/
 package coreprogramming.javamethods.level2;
-// Package declaration indicating Java Methods Level 2 programs
 
 import java.util.Scanner;
-// Importing Scanner class to take input from the user
 
+/*
+ * StudentVoteChecker class
+ * ------------------------
+ * This class checks whether students are eligible to vote based on their age.
+ * It includes:
+ * 1. canStudentVote(int age): Returns true if age is 18 or above, false otherwise.
+ * 2. main(): Prompts the user to enter ages for 10 students and prints
+ *    whether each student can vote or not.
+ */
 public class StudentVoteChecker {
-    // Class to check whether students are eligible to vote
 
-    // Method to check whether a student is eligible to vote based on age
+    // Method to check if a student is eligible to vote
     public boolean canStudentVote(int age) {
 
-        // If age is negative, it is invalid
-        if (age < 0) {
+        if (age < 0) { // Age cannot be negative
             return false;
-            // Returning false for invalid age
         }
 
-        return age >= 18;
-        // Returning true if age is 18 or above, otherwise false
+        return age >= 18; // Eligible if age is 18 or more
     }
 
+    // Main method to demonstrate the voting eligibility check
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in); // Create Scanner object for user input
+        StudentVoteChecker checker = new StudentVoteChecker(); // Create object of StudentVoteChecker
 
-        Scanner input = new Scanner(System.in);
-        // Creating Scanner object to take input from the user
+        int[] ages = new int[10]; // Array to store ages of 10 students
 
-        StudentVoteChecker checker = new StudentVoteChecker();
-        // Creating object of StudentVoteChecker to call non-static method
-
-        int[] ages = new int[10];
-        // Declaring an array to store ages of 10 students
-
+        // Loop to get input and check voting eligibility for each student
         for (int i = 0; i < ages.length; i++) {
-            // Loop to read age for each student
+            System.out.print("Enter age of student " + (i + 1) + ": "); // Prompt user for input
+            ages[i] = input.nextInt(); // Read age from user
 
-            System.out.print("Enter age of student " + (i + 1) + ": ");
-            // Prompting user to enter age
+            boolean canVote = checker.canStudentVote(ages[i]); // Check eligibility
 
-            ages[i] = input.nextInt();
-            // Storing entered age in the array
-
-            boolean canVote = checker.canStudentVote(ages[i]);
-            // Calling method to check voting eligibility
-
+            // Print result based on eligibility
             if (canVote) {
                 System.out.println("Student " + (i + 1) + " can vote.");
-                // Printing message if student is eligible to vote
             } else {
                 System.out.println("Student " + (i + 1) + " cannot vote.");
-                // Printing message if student is not eligible to vote
             }
         }
-
-        input.close();
-        // Closing Scanner to free system resources
     }
 }

@@ -1,57 +1,43 @@
-/*
- This program checks whether a given year is a leap year.
- It validates the input to ensure the year is a 4-digit number
- and is not earlier than 1582 (start of the Gregorian calendar).
- Based on leap year rules, it prints whether the year is a leap year or not.
-*/
 package coreprogramming.controlflowpractices.level3;
-// Defines the package for Level 3 control flow practice programs
 
 import java.util.Scanner;
-// Imports Scanner class to take input from the user
 
 public class Year {
-    // Main class declaration
+
+    /*
+     * This program checks whether a given year is a leap year according to the Gregorian calendar.
+     * Leap year rules:
+     *  - A year divisible by 4 is a leap year,
+     *  - Except years divisible by 100 are not leap years,
+     *  - But years divisible by 400 are leap years.
+     * The program ensures the user enters a valid 4-digit year >= 1582.
+     * It demonstrates input validation, loops, and conditional statements in Java.
+     */
 
     public static void main(String[] args) {
-        // Main method where execution starts
 
+        // Create a Scanner object to read input from the user
         Scanner input = new Scanner(System.in);
-        // Creating Scanner object to read user input
 
+        // Prompt the user to enter a year
         System.out.print("Enter year: ");
-        // Prompting the user to enter a year
-
         int year = input.nextInt();
-        // Reading the year from the user
 
+        // Calculate the number of digits in the entered year
         int length = (int) Math.log10(year) + 1;
-        // Calculating number of digits in the year
 
-        // Loop to validate the entered year
+        // Validate the input: year must be 4 digits and >= 1582
         while (length != 4 || year < 1582) {
-            // Condition checks for 4-digit year and Gregorian calendar validity
-
-            System.out.println("Please enter a valid year: ");
-            // Asking the user to re-enter a valid year
-
+            System.out.println("Please enter a valid year (>= 1582 and 4-digit): ");
             year = input.nextInt();
-            // Reading year again
-
             length = (int) Math.log10(year) + 1;
-            // Recalculating digit length after new input
         }
 
-        // Checking leap year condition
-        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-            // Leap year rule check
-
-            System.out.println("Year is a leap year");
-            // Printing leap year message
-        }
-        else {
-            System.out.println("Year is not a leap year");
-            // Printing non-leap year message
+        // Check leap year using combined conditional expression
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a leap year");
+        } else {
+            System.out.println(year + " is not a leap year");
         }
     }
 }

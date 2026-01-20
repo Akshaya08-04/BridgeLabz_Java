@@ -1,40 +1,47 @@
-/*
- This program counts the number of vowels and consonants in a given string.
- It reads a string from the user, checks each character, and increments
- vowel or consonant counters based on simple character comparison logic.
-*/
-package coreprogramming.Extras; // Specifies the package where this class belongs
+package coreprogramming.extrasstring;
 
-import java.util.Scanner; // Imports Scanner class to take input from the user
+import java.util.Scanner;
 
-public class VowelsConsonants { // Class definition
-    public static void main(String[] args) { // Main method where execution starts
+public class VowelsConsonants {
 
-        Scanner input = new Scanner(System.in); // Creates Scanner object for user input
+    /*
+     * This program counts the number of vowels and consonants in a string entered by the user.
+     * Vowels are considered as 'a', 'e', 'i', 'o', 'u' (lowercase only in this implementation).
+     * Consonants are all other alphabetic characters.
+     * Non-alphabetic characters are considered consonants in this basic version.
+     * Example:
+     *   Input: "hello"
+     *   Output: Vowels = 2, Consonants = 3
+     * This demonstrates character iteration, condition checking, and string processing in Java.
+     */
 
-        System.out.print("Enter a string: "); // Prompts the user to enter a string
-        String text = input.nextLine(); // Reads the input string
+    public static void main(String[] args) {
+        // Create Scanner object to read user input
+        Scanner input = new Scanner(System.in);
 
-        int vowels = 0; // Variable to count number of vowels
+        // Prompt user to enter a string
+        System.out.print("Enter a string: ");
+        String text = input.nextLine();
 
-        int consonants = 0; // Variable to count number of consonants
+        int vowels = 0;     // Counter for vowels
+        int consonants = 0; // Counter for consonants
 
-        // Loop to traverse each character in the string
-        for (int i = 0; i < text.length(); i++) { // Iterates through the string
+        // Iterate through each character of the string
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
 
-            char ch = text.charAt(i); // Gets the current character
-
-            // Checks if the character is a lowercase vowel
+            // Check if character is a vowel (lowercase)
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-                vowels++; // Increments vowel count
-            }
-            // Counts all other characters as consonants as per given logic
+                vowels++;
+            } 
+            // All other characters counted as consonants
             else {
-                consonants++; // Increments consonant count
+                consonants++;
             }
         }
 
-        System.out.println("The number of vowels in the given string is: " + vowels); // Prints vowel count
-        System.out.println("The number of consonants in the given string is: " + consonants); // Prints consonant count
+        // Display the counts
+        System.out.println("The number of vowels in the given string is: " + vowels);
+        System.out.println("The number of consonants in the given string is: " + consonants);
     }
 }

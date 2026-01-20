@@ -1,81 +1,102 @@
-/*
- This program calculates the Body Mass Index (BMI) for a group of people.
- It takes weight and height as input, stores them in arrays,
- computes BMI for each person, determines their weight category,
- and finally displays the result in a tabular format.
-*/
-package coreprogramming.arraypractice.level2; // Defines the package for Level 2 array practice programs
+/**
+ * Program Name: BMI
+ *
+ * Description:
+ * This program calculates the Body Mass Index (BMI) of each person
+ * in a team based on their weight and height.
+ * 
+ * For each person:
+ * - BMI is calculated using the formula: BMI = weight / (height^2)
+ * - A weight status is assigned based on BMI:
+ *      < 18.5 : Underweight
+ *      18.5 - 24.9 : Normal weight
+ *      25 - 29.9 : Overweight
+ *      >= 30 : Obese
+ *
+ * The program then displays weight, height, BMI, and weight status
+ * in a tabular format.
+ *
+ * Concepts Used:
+ * - Arrays
+ * - Loops
+ * - Conditional statements
+ * - User input using Scanner
+ * - Formatted output
+ */
 
-import java.util.Scanner; // Scanner class is used to take input from the user
+package coreprogramming.arraypractice.level2;
 
-public class BMI { // Main class definition
-    public static void main(String[] args) { // Main method where program execution starts
+import java.util.Scanner;
 
-        Scanner input = new Scanner(System.in); // Creating Scanner object to read user input
+public class BMI {
 
-        System.out.print("Enter number of people in a team: "); // Prompts user for team size
-        int people = input.nextInt(); // Reads the number of people in the team
+    public static void main(String[] args) {
 
-        double[] weight = new double[people]; // Array to store weight of each person
+        // Creating Scanner object to read input from the user
+        Scanner input = new Scanner(System.in);
 
-        double[] height = new double[people]; // Array to store height of each person
+        // Prompting user to enter number of people in the team
+        System.out.print("Enter number of people in a team: ");
+        int people = input.nextInt();
 
-        double[] BMI = new double[people]; // Array to store BMI values for each person
+        // Declaring arrays to store weight, height, BMI, and weight status
+        double[] weight = new double[people];
+        double[] height = new double[people];
+        double[] BMI = new double[people];
+        String[] weightStatus = new String[people];
 
-        String[] weightStatus = new String[people]; // Array to store BMI category for each person
+        // Loop to read weight and height for each person
+        for (int i = 0; i < people; i++) {
 
-        // Loop to take weight and height details for each person
-        for (int i = 0; i < people; i++) { // Iterates through each person
+            // Displaying person number
+            System.out.println("Enter details of person " + (i + 1));
 
-            System.out.println("Enter details of person " + (i + 1)); // Displays person number
+            // Prompting and reading weight
+            System.out.print("Enter weight of each people in the team: ");
+            weight[i] = input.nextDouble();
 
-            System.out.print("Enter weight of each people in the team: "); // Prompts for weight
-            weight[i] = input.nextDouble(); // Stores weight value
-
-            System.out.print("Enter height of each people in the team: "); // Prompts for height
-            height[i] = input.nextDouble(); // Stores height value
+            // Prompting and reading height
+            System.out.print("Enter height of each people in the team: ");
+            height[i] = input.nextDouble();
         }
 
-        System.out.println("Weight array: "); // Heading for weight array output
-
-        // Loop to display weight values
-        for (int i = 0; i < people; i++) { // Iterates through weight array
-            System.out.print(weight[i] + " "); // Prints each weight
+        // Displaying weight array
+        System.out.println("Weight array: ");
+        for (int i = 0; i < people; i++) {
+            System.out.print(weight[i] + " ");
         }
 
-        System.out.println("\nHeight array: "); // Heading for height array output
-
-        // Loop to display height values
-        for (int i = 0; i < people; i++) { // Iterates through height array
-            System.out.print(height[i] + " "); // Prints each height
+        // Displaying height array
+        System.out.println("\nHeight array: ");
+        for (int i = 0; i < people; i++) {
+            System.out.print(height[i] + " ");
         }
 
-        // Loop to calculate BMI and determine weight status
-        for (int i = 0; i < people; i++) { // Iterates through each person
+        // Calculating BMI and weight status for each person
+        for (int i = 0; i < people; i++) {
 
-            BMI[i] = weight[i] / (height[i] * height[i]); // Calculates BMI using formula
+            // BMI formula: weight (kg) / (height (m) ^ 2)
+            BMI[i] = weight[i] / (height[i] * height[i]);
 
-            // Determines weight category based on BMI value
-            if (BMI[i] < 18.5) { // Checks for underweight
-                weightStatus[i] = "Underweight"; // Assigns underweight status
-            }
-            else if (BMI[i] <= 24.9) { // Checks for normal weight
-                weightStatus[i] = "Normal weight"; // Assigns normal weight status
-            }
-            else if (BMI[i] <= 29.9) { // Checks for overweight
-                weightStatus[i] = "Overweight"; // Assigns overweight status
-            }
-            else { // Executes if BMI is above 29.9
-                weightStatus[i] = "Obese"; // Assigns obese status
+            // Assigning weight status based on BMI
+            if (BMI[i] < 18.5) {
+                weightStatus[i] = "Underweight";
+            } else if (BMI[i] <= 24.9) {
+                weightStatus[i] = "Normal weight";
+            } else if (BMI[i] <= 29.9) {
+                weightStatus[i] = "Overweight";
+            } else {
+                weightStatus[i] = "Obese";
             }
         }
 
-        System.out.println("\nHeight\tWeight\tBMI\t\tStatus"); // Prints table header
+        // Displaying the results in a tabular format
+        System.out.println("\nHeight\tWeight\tBMI\t\tStatus");
+        for (int i = 0; i < people; i++) {
 
-        // Loop to display height, weight, BMI, and status in tabular format
-        for (int i = 0; i < people; i++) { // Iterates through each person
+            // Printing height, weight, BMI, and status formatted to 2 decimal places
             System.out.printf("%.2f\t%.2f\t%.2f\t%s%n",
-                    height[i], weight[i], BMI[i], weightStatus[i]); // Prints formatted output
+                    height[i], weight[i], BMI[i], weightStatus[i]);
         }
     }
 }
