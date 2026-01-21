@@ -14,21 +14,21 @@ README File
 
 • 13-Dec-2025 (Saturday): Started with C# basics.
 
-• 15-Dec-2025 (Monday): Programming Elements – Level 1.
+• 15-Dec-2025 (Monday): Completed Programming Elements – Level 1 and pushed it in git
 
-• 16-Dec-2025 (Tuesday): Programming Elements – Level 2 and Control Flow.
+• 16-Dec-2025 (Tuesday): Completed Programming Elements – Level 2  Problems and pushed it in git repo and started learning Control Flow statements.
 
-• 17-Dec-2025 (Wednesday): Git tasks and Control Flow – Level 3.
+• 17-Dec-2025 (Wednesday): Completed Git tasks and Control Flow – Level 3 and pushed it in git repository
 
-• 18-Dec-2025 (Thursday): Git tasks and Array problems – Level 1.
+• 18-Dec-2025 (Thursday): Practised Git tasks and completed Array problems – Level 1 and pushed it in github
 
 • 19-Dec-2025 (Friday): Reviewed core C# and .NET concepts.
 
-• 20-Dec-2025 (Saturday): Practiced Git commands and Arrays – Level 2.
+• 20-Dec-2025 (Saturday): Practiced Git commands and Completed Arrays – Level 2 and pushed it in github
 
-• 22-Dec-2025 (Monday): Methods – Level 1 and Level 2.
+• 22-Dec-2025 (Monday): Completed Methods – Level 1 and Level 2.
 
-• 23-Dec-2025 (Tuesday): Methods – Level 3 and Strings.
+• 23-Dec-2025 (Tuesday): Completed Methods – Level 3 and started learning Strings.
 
 • 09-Jan-2026 (Friday): Joined BridgeLabz Java training continuation. Environment walkthrough and overview of Java backend training.
 
@@ -51,6 +51,7 @@ README File
 .19-Jan-2026(Monday):Practised and completed class structure,encapsulation,Inheritance 
 
 .20-Jan-2026(Tuesday):Started learning basics and introduction od data structures
+
 
 
 
