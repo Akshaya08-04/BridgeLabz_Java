@@ -52,6 +52,12 @@ README File
 
 .20-Jan-2026(Tuesday):Started learning basics and introduction od data structures
 
+.21-Jan-2026(Wednesday):Revised Java basic concepts and attended weekly review.
+
+.22-Jan-2026(Thursday):Practiced DSA programs and attended weekly review.
+
+
+
 
 
 
