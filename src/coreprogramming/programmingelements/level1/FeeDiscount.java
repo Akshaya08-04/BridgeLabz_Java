@@ -7,12 +7,12 @@ package coreprogramming.programmingelements.level1;
 public class FeeDiscount {
 
     public static void main(String[] args) {
-        final double FEE = 125000;             // Original fee
-        final double DISCOUNT_PERCENT = 0.10;  // 10% discount
+        final double fee = 125000;             // Original fee
+        final double discountPercent = 0.10;  // 10% discount
 
         // Calculate discount and final fee
-        double discountAmount = FEE * DISCOUNT_PERCENT;
-        double finalFee = FEE - discountAmount;
+        double discountAmount = fee*discountPercent;
+        double finalFee = fee - discountAmount;
 
         // Display results in formatted output
         System.out.printf(
